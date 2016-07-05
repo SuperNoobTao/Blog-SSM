@@ -1,6 +1,7 @@
 package cn.edu.zucc.mapper;
 
-import cn.edu.zucc.entity.TbUserEntity;
+import cn.edu.zucc.pojo.TbUserEntity;
+import org.apache.ibatis.annotations.Param;
 
 /**
  * Created by shentao on 2016/7/4.
@@ -15,7 +16,7 @@ public interface UserMapper {
      * @param id
      * @return
      */
-    TbUserEntity queryById(long id);
+    TbUserEntity queryById(@Param("user_id")long id);
 
 
     /**
@@ -23,6 +24,13 @@ public interface UserMapper {
      * @param userAcount
      * @return
      */
-    TbUserEntity queryByName(String userAcount);
+    TbUserEntity queryByName(@Param("user_acount")String userAcount);
 
+
+    /**
+     * 查询在数据库里是否有此账号密码的用户
+     * @param userAcount
+     * @param pwd
+     */
+    TbUserEntity selectUser(@Param("user_acount")String userAcount, @Param("user_pwd")String pwd);
 }

@@ -1,6 +1,5 @@
-package cn.edu.zucc.entity;
+package cn.edu.zucc.pojo;
 
-import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
 

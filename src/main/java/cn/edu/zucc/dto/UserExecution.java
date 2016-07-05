@@ -1,6 +1,6 @@
 package cn.edu.zucc.dto;
 
-import cn.edu.zucc.entity.TbUserEntity;
+import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.enums.UserStateEnum;
 
 /**
@@ -8,44 +8,58 @@ import cn.edu.zucc.enums.UserStateEnum;
  */
 public class UserExecution {
 
-    // 用户ID
-    private long userId;
+    // 用户账号
+    private String userAcount;
 
+    // 用户密码
+    private String userPwd;
     // 结果状态
     private int state;
 
     // 状态标识
     private String stateInfo;
 
-    // 预约成功对象
+    // 登录成功对象
     private TbUserEntity tbUserEntity;
 
     public UserExecution() {
     }
 
-    // 预约失败的构造器
-    public UserExecution(long userId, UserStateEnum stateEnum) {
-        this.userId = userId;
+    // 登录失败的构造器
+    public UserExecution(String userAcount,String userPwd, UserStateEnum stateEnum) {
+        this.userAcount = userAcount;
+        this.userPwd = userPwd;
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
     }
 
-    // 预约成功的构造器
-    public UserExecution(long userId, UserStateEnum stateEnum, TbUserEntity tbUserEntity) {
-        this.userId = userId;
+    // 登录成功的构造器
+    public UserExecution(String userAcount,String userPwd, UserStateEnum stateEnum, TbUserEntity tbUserEntity) {
+        this.userAcount = userAcount;
+        this.userPwd = userPwd;
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
         this.tbUserEntity = tbUserEntity;
     }
 
 
-    // 省略getter和setter方法，toString方法
-    public long getUserId() {
-        return userId;
+    // getter和setter方法，toString方法
+
+
+    public String getUserAcount() {
+        return userAcount;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUserAcount(String userAcount) {
+        this.userAcount = userAcount;
+    }
+
+    public String getUserPwd() {
+        return userPwd;
+    }
+
+    public void setUserPwd(String userPwd) {
+        this.userPwd = userPwd;
     }
 
     public int getState() {
@@ -70,5 +84,16 @@ public class UserExecution {
 
     public void setTbUserEntity(TbUserEntity tbUserEntity) {
         this.tbUserEntity = tbUserEntity;
+    }
+
+    @Override
+    public String toString() {
+        return "UserExecution{" +
+                "userAcount='" + userAcount + '\'' +
+                ", userPwd='" + userPwd + '\'' +
+                ", state=" + state +
+                ", stateInfo='" + stateInfo + '\'' +
+                ", tbUserEntity=" + tbUserEntity +
+                '}';
     }
 }

@@ -1,6 +1,7 @@
 package cn.edu.zucc.service;
 
-import cn.edu.zucc.entity.TbUserEntity;
+import cn.edu.zucc.dto.UserExecution;
+import cn.edu.zucc.pojo.TbUserEntity;
 
 /**
  * Created by shentao on 2016/7/5.
@@ -23,6 +24,14 @@ public interface UserService {
      */
     TbUserEntity getByName(String userAcount);
 
+
+    /**
+     * 登录
+     * @param userAcount
+     * @param userPwd
+     * @return
+     */
+    UserExecution login(String userAcount, String userPwd);
 
 }
 

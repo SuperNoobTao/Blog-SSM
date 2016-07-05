@@ -30,6 +30,19 @@
         user_acount = #{userAcount}
     </select>
 
+    <select id="selectUser" resultType="TbUserEntity" >
+        <!-- 具体的sql -->
+        SELECT
+        user_id,
+        user_acount,
+        user_pwd,
+        user_name
+        FROM
+        tb_user
+        WHERE
+        user_acount = #{user_acount} and user_pwd = #{user_pwd}
+    </select>
+
 
 
 </mapper>

@@ -1,6 +1,6 @@
 package test.cn.edu.zucc.service.impl;
 
-import cn.edu.zucc.entity.TbUserEntity;
+import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 import org.junit.Test;
 import org.junit.Before; 
@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 * @version 1.0 
 */
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration({ "classpath*:spring-dao.xml", "classpath*:spring-service.xml" })
+@ContextConfiguration({"classpath*:spring-mapper.xml", "classpath*:spring-service.xml" })
 public class UserServiceImplTest {
 
     @Autowired
@@ -52,5 +52,12 @@ System.out.println(tbUserEntity);
         System.out.println(tbUserEntity);
     }
 
-
+    @Test
+    public void testLogin() throws Exception {
+//TODO: Test goes here...
+        String userAcount ="1";
+        String pwd ="1";
+        TbUserEntity tbUserEntity = userService.login(userAcount,pwd);
+        System.out.println(tbUserEntity);
+    }
 } 
