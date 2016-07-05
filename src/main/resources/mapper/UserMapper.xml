@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.zucc.mapper.UserMapper">
+    <!-- 目的：为dao接口方法提供sql语句配置 -->
+    <select id="queryById" resultType="TbUserEntity" parameterType="long">
+        <!-- 具体的sql -->
+        SELECT
+        user_id,
+        user_acount,
+        user_pwd,
+        user_name
+        FROM
+        tb_user
+        WHERE
+        user_id = #{userId}
+    </select>
+
+    <select id="queryByName" resultType="TbUserEntity" parameterType="string">
+        <!-- 具体的sql -->
+        SELECT
+        user_id,
+        user_acount,
+        user_pwd,
+        user_name
+        FROM
+        tb_user
+        WHERE
+        user_acount = #{userAcount}
+    </select>
+
+
+
+</mapper>
