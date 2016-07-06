@@ -1,5 +1,6 @@
-package test.cn.edu.zucc.service.impl;
+package test.cn.edu.zucc.service.impl; 
 
+import cn.edu.zucc.dto.Message;
 import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 import org.junit.Test;
@@ -14,7 +15,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 * UserServiceImpl Tester. 
 * 
 * @author <Authors name> 
-* @since <pre>ï¿½ï¿½ï¿½ï¿½ 5, 2016</pre> 
+* @since <pre>ÆßÔÂ 5, 2016</pre> 
 * @version 1.0 
 */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -23,6 +24,7 @@ public class UserServiceImplTest {
 
     @Autowired
     private UserService userService;
+
 @Before
 public void before() throws Exception { 
 } 
@@ -39,25 +41,40 @@ public void after() throws Exception {
 @Test
 public void testGetById() throws Exception { 
 //TODO: Test goes here...
-long userId =32;
-TbUserEntity tbUserEntity = userService.getById(userId);
-System.out.println(tbUserEntity);
-}
+    long userId =32;
+    TbUserEntity tbUserEntity = userService.getById(userId);
+    System.out.println(tbUserEntity);
 
-    @Test
-    public void testGetByName() throws Exception {
-//TODO: Test goes here...
-        String userAcount ="1";
-        TbUserEntity tbUserEntity = userService.getByName(userAcount);
-        System.out.println(tbUserEntity);
-    }
+} 
 
-    @Test
-    public void testLogin() throws Exception {
+/** 
+* 
+* Method: getByName(String userAcount) 
+* 
+*/ 
+@Test
+public void testGetByName() throws Exception { 
 //TODO: Test goes here...
-        String userAcount ="1";
-        String pwd ="1";
-        TbUserEntity tbUserEntity = userService.login(userAcount,pwd);
-        System.out.println(tbUserEntity);
-    }
+    String userAcount ="1";
+    TbUserEntity tbUserEntity = userService.getByName(userAcount);
+    System.out.println(tbUserEntity);
+} 
+
+/** 
+* 
+* Method: login(String userAcount, String userPwd) 
+* 
+*/ 
+@Test
+public void testLogin() throws Exception { 
+//TODO: Test goes here...
+    String userAcount ="1";
+    String pwd ="12";
+    Message execution = userService.login(userAcount, pwd);
+    System.out.println(execution);
+
+
+} 
+
+
 } 

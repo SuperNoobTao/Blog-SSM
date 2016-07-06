@@ -2,12 +2,13 @@ package cn.edu.zucc.mapper;
 
 import cn.edu.zucc.pojo.TbUserEntity;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by shentao on 2016/7/4.
  */
 
-
+@Repository
 public interface UserMapper {
 
     /**
@@ -20,11 +21,11 @@ public interface UserMapper {
 
 
     /**
-     * 通过name查询单个用户
+     * 通过acount查询单个用户
      * @param userAcount
      * @return
      */
-    TbUserEntity queryByName(@Param("user_acount")String userAcount);
+    TbUserEntity queryByAcount(@Param("user_acount")String userAcount);
 
 
     /**

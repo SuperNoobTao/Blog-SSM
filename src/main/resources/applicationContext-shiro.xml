@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="shiroRealm"/>
+        <property name="cacheManager" ref="cacheManager"/>
+    </bean>
+
+
+    <bean id="cacheManager" class="org.apache.shiro.cache.MemoryConstrainedCacheManager"/>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/"/>
+        <property name="successUrl" value="/home"/>
+        <property name="filterChainDefinitions">
+            <value>
+                /static/** = anon
+                /account/** = roles[管理员]
+                /** = authc
+            </value>
+        </property>
+    </bean>
+
+
+</beans>

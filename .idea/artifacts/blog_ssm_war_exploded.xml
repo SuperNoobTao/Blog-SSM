@@ -7,6 +7,12 @@
           <element id="module-output" name="blog-ssm" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-all:1.2.4" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-guice:1.2.4" />
+          <element id="library" level="project" name="Maven: org.apache.shiro:shiro-core:1.2.4" />
+          <element id="library" level="project" name="Maven: commons-beanutils:commons-beanutils:1.8.3" />
+          <element id="library" level="project" name="Maven: com.google.inject:guice:3.0" />
+          <element id="library" level="project" name="Maven: com.google.inject.extensions:guice-multibindings:3.0" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.2.6" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:1.2.2" />
           <element id="library" level="project" name="Maven: org.hibernate:hibernate-c3p0:4.1.7.Final" />

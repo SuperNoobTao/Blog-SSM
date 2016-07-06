@@ -3,14 +3,15 @@ package cn.edu.zucc.enums;
 /**
  * Created by shentao on 2016/7/4.
  */
-public enum UserStateEnum {
+public enum StateEnum {
 
-    SUCCESS_LOGIN(1, "登录成功"), SUCCESS_REG(0, "注册成功"), NO_USER(-1, "无此用户"), INNER_ERROR(-2, "系统异常");
+    SUCCESS(1, "alert-success"), INFO(0, "alert-info"), WARING(-1, "alert-warning"), ERROR(-2, "alert-danger");
+
     private int state;
 
     private String stateInfo;
 
-    private UserStateEnum(int state, String stateInfo) {
+    private StateEnum(int state, String stateInfo) {
         this.state = state;
         this.stateInfo = stateInfo;
     }
@@ -23,8 +24,8 @@ public enum UserStateEnum {
         return stateInfo;
     }
 
-    public static UserStateEnum stateOf(int index) {
-        for (UserStateEnum state : values()) {
+    public static StateEnum stateOf(int index) {
+        for (StateEnum state : values()) {
             if (state.getState() == index) {
                 return state;
             }

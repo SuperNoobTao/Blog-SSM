@@ -12,10 +12,16 @@
       </configuration>
     </facet>
     <facet type="Spring" name="Spring">
-      <configuration />
+      <configuration>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext-shiro.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/applicationContext-shiro.xml</file>
+          <file>file://$MODULE_DIR$/src/main/java/cn/edu/zucc/service/ShiroRealm.java</file>
+        </fileset>
+      </configuration>
     </facet>
   </component>
-  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_6" inherit-compiler-output="false">
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="false">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
     <content url="file://$MODULE_DIR$">
@@ -25,6 +31,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-all:1.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-guice:1.2.4" level="project" />
+    <orderEntry type="library" name="Maven: org.apache.shiro:shiro-core:1.2.4" level="project" />
+    <orderEntry type="library" name="Maven: commons-beanutils:commons-beanutils:1.8.3" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject:guice:3.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.inject.extensions:guice-multibindings:3.0" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis:3.2.6" level="project" />
     <orderEntry type="library" name="Maven: org.mybatis:mybatis-spring:1.2.2" level="project" />
     <orderEntry type="library" name="Maven: org.hibernate:hibernate-c3p0:4.1.7.Final" level="project" />

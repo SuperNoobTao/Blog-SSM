@@ -28,9 +28,9 @@ public class UserMapperTest{
         System.out.println(user);
     }
     @Test
-    public void testQueryByName() throws Exception {
+    public void testQueryByAcount() throws Exception {
         String userAcount = "1";
-        TbUserEntity user = userMapper.queryByName(userAcount);
+        TbUserEntity user = userMapper.queryByAcount(userAcount);
         System.out.println(user);
     }
 
@@ -41,5 +41,8 @@ public class UserMapperTest{
         TbUserEntity user = userMapper.selectUser(userAcount,pwd);
         System.out.println("testSelectUser="+user);
     }
+
+
+
 
 }

@@ -55,4 +55,5 @@ public class Result<T> {
     public void setError(String error) {
         this.error = error;
     }
+
 }

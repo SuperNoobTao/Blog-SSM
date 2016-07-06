@@ -1,6 +1,6 @@
 package cn.edu.zucc.service;
 
-import cn.edu.zucc.dto.UserExecution;
+import cn.edu.zucc.dto.Message;
 import cn.edu.zucc.pojo.TbUserEntity;
 
 /**
@@ -31,7 +31,7 @@ public interface UserService {
      * @param userPwd
      * @return
      */
-    UserExecution login(String userAcount, String userPwd);
+    Message login(String userAcount, String userPwd);
 
 }
 

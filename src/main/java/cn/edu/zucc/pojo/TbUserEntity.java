@@ -7,6 +7,13 @@ import java.sql.Timestamp;
  * Created by shentao on 2016/5/31.
  */
 public class TbUserEntity implements Serializable {
+
+    public static final String USER_STATE_OK = "正常";
+    public static final String USER_STATE_DISABLE = "禁用";
+    public static final String SESSION_KEY = "curr_user";
+
+
+
     private int userId;
     private String userAcount;
     private String userPwd;

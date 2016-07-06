@@ -14,10 +14,10 @@
         FROM
         tb_user
         WHERE
-        user_id = #{userId}
+        user_id = #{user_id}
     </select>
 
-    <select id="queryByName" resultType="TbUserEntity" parameterType="string">
+    <select id="queryByAcount" resultType="TbUserEntity" parameterType="string">
         <!-- 具体的sql -->
         SELECT
         user_id,
@@ -27,7 +27,7 @@
         FROM
         tb_user
         WHERE
-        user_acount = #{userAcount}
+        user_acount = #{user_acount}
     </select>
 
     <select id="selectUser" resultType="TbUserEntity" >
