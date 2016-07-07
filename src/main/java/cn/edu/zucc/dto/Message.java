@@ -14,15 +14,18 @@ public class Message {
     // 状态标识
     private String stateInfo;
 
+    //详细信息
+    private  String info;
 
     public Message() {
     }
 
     // 操作构造器
-    public Message(StateEnum stateEnum) {
+    public Message(StateEnum stateEnum,String info) {
 
         this.state = stateEnum.getState();
         this.stateInfo = stateEnum.getStateInfo();
+
     }
 
     // getter和setter方法，toString方法
@@ -41,6 +44,14 @@ public class Message {
 
     public void setStateInfo(String stateInfo) {
         this.stateInfo = stateInfo;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+    public void setInfo(String info) {
+        this.info = info;
     }
 
 

@@ -1,12 +1,8 @@
 package cn.edu.zucc.mapper;
 
-import cn.edu.zucc.pojo.TbRoleEntity;
 import cn.edu.zucc.pojo.TbUserEntity;
-import cn.edu.zucc.pojo.UserExample;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 /**
  * Created by shentao on 2016/7/4.

@@ -62,6 +62,8 @@
                 <button class="btn text-muted text-center btn-success" type="submit">Recover Password</button>
             </form>
         </div>
+
+
         <div id="signup" class="tab-pane">
             <form method="post" action="${pageContext.request.contextPath}/user/register"  class="form-signin">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">Please Fill Details To Register</p>
@@ -80,7 +82,8 @@
 
                 </div>
 
-                <input type="email" name="userEmail" placeholder="Your E-mail" class="form-control" />
+                <input type="email" name="userEmail" placeholder="Your E-mail" class="form-control"  onBlur="checkEmail(this)"/>
+                <SPAN id=email_notice ></SPAN>
                 <input type="password" name="userPwd" placeholder="Password" class="form-control"  onkeyup="checkIntensity(this.value)" />
                  <SPAN id=password_notice ></SPAN>
                 <TR>
@@ -95,7 +98,9 @@
                     </TABLE></TD>
                 </TR>
                 <input type="text" name="userPhone" placeholder="User Phone" class="form-control" />
+                <br />
                 <button class="btn text-muted text-center btn-success" type="submit">Register</button>
+
             </form>
         </div>
     </div>

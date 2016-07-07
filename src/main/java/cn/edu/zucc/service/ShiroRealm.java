@@ -36,7 +36,7 @@ public class ShiroRealm extends AuthorizingRealm {
         TbUserEntity user = userMapper.queryByAcount(shiroUser.getUserAcount());
         if(user != null) {
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
-            //获取用户对应的角色列表
+            //获取用户对应的角色
             TbRoleEntity roleList = roleMapper.QueryByUserId(user.getUserId());
 
                 info.addRole(roleList.getRoleName());

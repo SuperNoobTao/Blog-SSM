@@ -2,6 +2,7 @@ package cn.edu.zucc.web;
 
 import cn.edu.zucc.dto.Result;
 import cn.edu.zucc.dto.Message;
+import cn.edu.zucc.enums.StateEnum;
 import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 
@@ -11,6 +12,7 @@ import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -44,6 +46,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @Value("${user.salt}")
+    private String passwordSalt;
+
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = {
             "application/json; charset=utf-8" })
         private String login(@Valid TbUserEntity tbUserEntity,RedirectAttributes redirectAttributes) {
@@ -52,7 +57,24 @@ public class UserController {
         if(subject.isAuthenticated()) {
             subject.logout();
         }
-        return "";
+        try {
+            //登录，调用ShiroRealm类中的登录认证方法
+            subject.login(new UsernamePasswordToken(tbUserEntity.getUserAcount(), DigestUtils.md5Hex(tbUserEntity.getUserPwd()+passwordSalt)));
+            //将登录的对象放入到Session中
+            Session session = subject.getSession();
+            session.setAttribute(tbUserEntity.SESSION_KEY,(TbUserEntity)subject.getPrincipal());
+            return "redirect:/home";
+        } catch (LockedAccountException ex) {
+            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
+            return "redirect:/";
+        } catch (UnknownAccountException ex) {
+            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
+            return "redirect:/";
+        } catch (AuthenticationException ex) {
+            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,"账号或密码错误"));
+            return "redirect:/";
+        }
+
 
     }
     @RequestMapping(value = "/register", method = RequestMethod.POST, produces = {
@@ -68,6 +90,7 @@ public class UserController {
             "application/json; charset=utf-8" })
         private String checkUserName(@Valid TbUserEntity tbUserEntity, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userAcount=tbUserEntity.getUserAcount();
+        System.out.println(userAcount);
         int num = userService.countByAcount(userAcount);
         //用户名是否存在的标志
         boolean flag=false;
@@ -87,6 +110,36 @@ public class UserController {
         return null;
 
     }
+
+    @RequestMapping(value = "/register/checkEmail", method = RequestMethod.POST, produces = {
+            "application/json; charset=utf-8" })
+    private String checkEmail(@Valid TbUserEntity tbUserEntity, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        System.out.println("进入controller");
+        String userEmail=(String)request.getParameter("userEmail");
+        System.out.println(userEmail);
+        int num = userService.countByEmail(userEmail);
+        //邮箱是否存在的标志
+        boolean flag=false;
+        if(num>0){
+            flag=true;
+        }
+        //将数据转换成json
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("flag", flag);
+        String json = JSONObject.valueToString(map).toString();
+        //将数据返回
+        response.setCharacterEncoding("UTF-8");
+        response.flushBuffer();
+        response.getWriter().write(json);
+        response.getWriter().flush();
+        response.getWriter().close();
+        return null;
+
+    }
+
+
+
+
 
 
 
