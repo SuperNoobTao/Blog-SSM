@@ -1,63 +1,98 @@
-
+<%--
+  Created by IntelliJ IDEA.
+  User: shentao
+  Date: 2016/7/6
+  Time: 21:17
+  To change this template use File | Settings | File Templates.
+--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-
 <!DOCTYPE html>
-<html lang="zh-CN">
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+
+<!-- BEGIN HEAD -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="../../image/favicon.ico">
-    <link href="css/signin.css" rel="stylesheet">
-    <title>Signin Template for Bootstrap</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="http://cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
-    <%--<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">--%>
-    <%--<link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">--%>
-    <!-- Custom styles for this template -->
-
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="js/ie-emulation-modes-warning.js"></script>
-
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <meta charset="UTF-8" />
+    <title>红茶先森的个人博客 | Login Page</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <!--[if IE]>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <![endif]-->
+    <!-- GLOBAL STYLES -->
+    <!-- PAGE LEVEL STYLES -->
+    <link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="assets/css/login.css" />
+    <link rel="stylesheet" href="assets/plugins/magic/magic.css" />
+    <!-- END PAGE LEVEL STYLES -->
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
-    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
 </head>
+<!-- END HEAD -->
 
-<body>
+<!-- BEGIN BODY -->
+<body >
 
+<!-- PAGE CONTENT -->
 <div class="container">
-
-    <form class="form-signin"  method="post" action="${pageContext.request.contextPath}/user/login">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="username" class="sr-only">Email address</label>
-        <input type="text" id="username" name="userAcount" class="form-control" placeholder="Username" required autofocus>
-        <%--sr-only表示的是将label隐藏起来  自己拷贝过来的例子--%>
-        <%--<label for="exampleInputName2" class="sr-only">username</label>--%>
-        <%--<input type="text" class="form-control" id="exampleInputName2" placeholder="Jane Doe">--%>
-        <label for="password" class="sr-only">Password</label>
-        <input type="password" id="password" name="userPwd" class="form-control" placeholder="Password" required>
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+    <div class="text-center">
+        <img src="assets/img/logo.png" id="logoimg" alt=" Logo" />
+    </div>
+    <div class="tab-content">
+        <div id="login" class="tab-pane active">
+            <form action="index.html" class="form-signin">
+                <p class="text-muted text-center btn-block btn btn-primary btn-rect">
+                    Enter your username and password
+                </p>
+                <input type="text" placeholder="Username" class="form-control" />
+                <input type="password" placeholder="Password" class="form-control" />
+                <button class="btn text-muted text-center btn-danger" type="submit">Sign in</button>
+            </form>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" type="submit">登录</button>
-    </form>
+        <div id="forgot" class="tab-pane">
+            <form action="index.html" class="form-signin">
+                <p class="text-muted text-center btn-block btn btn-primary btn-rect">Enter your valid e-mail</p>
+                <input type="email"  required="required" placeholder="Your E-mail"  class="form-control" />
+                <br />
+                <button class="btn text-muted text-center btn-success" type="submit">Recover Password</button>
+            </form>
+        </div>
+        <div id="signup" class="tab-pane">
+            <form method="post" action="${pageContext.request.contextPath}/user/register"  class="form-signin">
+                <p class="text-muted text-center btn-block btn btn-primary btn-rect">Please Fill Details To Register</p>
+                <input type="text" name="userAcount" placeholder="User Acount" class="form-control" />
+                <input type="text" name="userName" placeholder="User Name" class="form-control" />
+                <input type="text" name="userPhone" placeholder="User Phone" class="form-control" />
+                <input type="email" name="userEmail" placeholder="Your E-mail" class="form-control" />
+                <input type="password" name="userPwd" placeholder="Password" class="form-control" />
+                <button class="btn text-muted text-center btn-success" type="submit">Register</button>
+            </form>
+        </div>
+    </div>
+    <div class="text-center">
+        <ul class="list-inline">
+            <li><a class="text-muted" href="#login" data-toggle="tab">Login</a></li>
+            <li><a class="text-muted" href="#forgot" data-toggle="tab">Forgot Password</a></li>
+            <li><a class="text-muted" href="#signup" data-toggle="tab">Signup</a></li>
+        </ul>
+    </div>
 
-</div> <!-- /container -->
 
+</div>
 
-<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-<script src="js/ie10-viewport-bug-workaround.js"></script>
+<!--END PAGE CONTENT -->
+
+<!-- PAGE LEVEL SCRIPTS -->
+<script src="assets/plugins/jquery-2.0.3.min.js"></script>
+<script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
+<script src="assets/js/login.js"></script>
+<!--END PAGE LEVEL SCRIPTS -->
+
 </body>
+<!-- END BODY -->
 </html>
-
