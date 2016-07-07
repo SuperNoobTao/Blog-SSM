@@ -2,8 +2,11 @@ package cn.edu.zucc.mapper;
 
 import cn.edu.zucc.pojo.TbRoleEntity;
 import cn.edu.zucc.pojo.TbUserEntity;
+import cn.edu.zucc.pojo.UserExample;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by shentao on 2016/7/4.
@@ -46,6 +49,18 @@ public interface UserMapper {
      * @param roleId 角色ID
      */
     int saveUserAndRole(@Param("user_id")int userId, @Param("role_id")int roleId);
+
+    /**
+     * 查询是否此账号的用户在数据库里
+     * @param userAcount 用户账号
+     */
+    int countByAcount(@Param("user_acount")String userAcount);
+
+    /**
+     *  查询是否此email的用户在数据库里
+     * @param userEmail 用户email
+     */
+    int countByEmail(@Param("user_email")String userEmail);
 
 
 

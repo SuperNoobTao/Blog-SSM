@@ -7,6 +7,7 @@ import cn.edu.zucc.service.UserService;
 
 
 import org.apache.commons.codec.digest.DigestUtils;
+import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,13 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by shentao on 2016/7/5.
@@ -58,6 +64,29 @@ public class UserController {
         return "";
     }
 
+    @RequestMapping(value = "/register/checkUserName", method = RequestMethod.POST, produces = {
+            "application/json; charset=utf-8" })
+        private String checkUserName(@Valid TbUserEntity tbUserEntity, HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String userAcount=tbUserEntity.getUserAcount();
+        int num = userService.countByAcount(userAcount);
+        //用户名是否存在的标志
+        boolean flag=false;
+        if(num>0){
+            flag=true;
+        }
+        //将数据转换成json
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("flag", flag);
+        String json = JSONObject.valueToString(map).toString();
+        //将数据返回
+        response.setCharacterEncoding("UTF-8");
+        response.flushBuffer();
+        response.getWriter().write(json);
+        response.getWriter().flush();
+        response.getWriter().close();
+        return null;
+
+    }
 
 
 

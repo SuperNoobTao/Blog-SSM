@@ -19,7 +19,16 @@
     <shiro-version>1.2.4</shiro-version>
   </properties>
 
+
   <dependencies>
+
+    <dependency>
+      <groupId>net.sf.json-lib</groupId>
+      <artifactId>json-lib</artifactId>
+      <version>2.4</version>
+      <classifier>jdk15</classifier>
+    </dependency>
+
     <!--apache权限框架的缓存管理器-->
     <dependency>
       <groupId>org.apache.shiro</groupId>

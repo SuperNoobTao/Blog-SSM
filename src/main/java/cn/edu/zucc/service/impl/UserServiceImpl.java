@@ -5,6 +5,7 @@ import cn.edu.zucc.enums.StateEnum;
 import cn.edu.zucc.mapper.UserMapper;
 import cn.edu.zucc.pojo.TbRoleEntity;
 import cn.edu.zucc.pojo.TbUserEntity;
+import cn.edu.zucc.pojo.UserExample;
 import cn.edu.zucc.service.UserService;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
@@ -61,6 +62,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public int countByAcount(String userAcount) {
+        return userMapper.countByAcount(userAcount);
+    }
+
+    @Override
+    public int countByEmail(String userEmail) {
+        return userMapper.countByEmail(userEmail);
+    }
+
+
 //    @Override
 //    @Transactional
 //    /**
@@ -70,18 +82,18 @@ public class UserServiceImpl implements UserService {
 //     * 3.不是所有的方法都需要事务，如只有一条修改操作，只读操作不需要事务控制
 //     */
 //    public Message login(String userAcount, String userPwd) {
-////        try {
-////        TbUserEntity tbUserEntity = userMapper.selectUser(userAcount,userPwd);
-////            if(tbUserEntity == null ){
-////                return  new Message(userAcount,userPwd, StateEnum.NO_USER);
-////            }else{
-////                return new Message(userAcount,userPwd, StateEnum.SUCCESS_LOGIN,tbUserEntity);
-////            }
-////        } catch (Exception e) {
-////            logger.error(e.getMessage(), e);
-////            // 所有编译期异常转换为运行期异常
-////            return new Message(userAcount,userPwd, StateEnum.INNER_ERROR);
-////        }
+//        try {
+//        TbUserEntity tbUserEntity = userMapper.selectUser(userAcount,userPwd);
+//            if(tbUserEntity == null ){
+//                return  new Message(userAcount,userPwd, StateEnum.NO_USER);
+//            }else{
+//                return new Message(userAcount,userPwd, StateEnum.SUCCESS_LOGIN,tbUserEntity);
+//            }
+//        } catch (Exception e) {
+//            logger.error(e.getMessage(), e);
+//            // 所有编译期异常转换为运行期异常
+//            return new Message(userAcount,userPwd, StateEnum.INNER_ERROR);
+//        }
 //
 //
 // //   }

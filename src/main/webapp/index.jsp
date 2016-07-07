@@ -65,11 +65,36 @@
         <div id="signup" class="tab-pane">
             <form method="post" action="${pageContext.request.contextPath}/user/register"  class="form-signin">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">Please Fill Details To Register</p>
-                <input type="text" name="userAcount" placeholder="User Acount" class="form-control" />
+                <input type="text" name="userAcount" placeholder="User Acount" class="form-control" onBlur="checkUserName(this)" />
+                <SPAN id="username_notice" ></SPAN>
                 <input type="text" name="userName" placeholder="User Name" class="form-control" />
-                <input type="text" name="userPhone" placeholder="User Phone" class="form-control" />
+
+                    <div class="form-group" >
+                    <label class="radio-inline">
+                        <input type="radio"  value="option1" name="男">男
+                    </label>
+
+                    <label class="radio-inline">
+                        <input type="radio"  value="option2" name="女">女
+                    </label>
+
+                </div>
+
                 <input type="email" name="userEmail" placeholder="Your E-mail" class="form-control" />
-                <input type="password" name="userPwd" placeholder="Password" class="form-control" />
+                <input type="password" name="userPwd" placeholder="Password" class="form-control"  onkeyup="checkIntensity(this.value)" />
+                 <SPAN id=password_notice ></SPAN>
+                <TR>
+                    <TD><TABLE cellSpacing=0 cellPadding=1 width=145 border=0>
+                        <TBODY>
+                        <TR align=middle>
+                            <TD id=pwd_lower width="33%">弱</TD>
+                            <TD id=pwd_middle width="33%">中</TD>
+                            <TD id=pwd_high width="33%">强</TD>
+                        </TR>
+                        </TBODY>
+                    </TABLE></TD>
+                </TR>
+                <input type="text" name="userPhone" placeholder="User Phone" class="form-control" />
                 <button class="btn text-muted text-center btn-success" type="submit">Register</button>
             </form>
         </div>
@@ -91,6 +116,7 @@
 <script src="assets/plugins/jquery-2.0.3.min.js"></script>
 <script src="assets/plugins/bootstrap/js/bootstrap.js"></script>
 <script src="assets/js/login.js"></script>
+<script src="assets/js/registerCheck.js"></script>
 <!--END PAGE LEVEL SCRIPTS -->
 
 </body>

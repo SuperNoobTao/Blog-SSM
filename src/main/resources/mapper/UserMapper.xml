@@ -15,7 +15,7 @@
         FROM
         tb_user
         WHERE
-        user_id = #{user_id}
+        user_id = #{user_id};
     </select>
 
     <select id="queryByAcount" resultType="TbUserEntity" parameterType="string">
@@ -28,7 +28,7 @@
         FROM
         tb_user
         WHERE
-        user_acount = #{user_acount}
+        user_acount = #{user_acount};
     </select>
 
     <select id="selectUser" resultType="TbUserEntity" >
@@ -41,7 +41,7 @@
         FROM
         tb_user
         WHERE
-        user_acount = #{user_acount} and user_pwd = #{user_pwd}
+        user_acount = #{user_acount} and user_pwd = #{user_pwd};
     </select>
 
 
@@ -66,8 +66,28 @@
         (
         #{user_id},
         #{role_id}
-        )
+        );
     </insert>
 
+
+    <select id="countByAcount" resultType="int" parameterType="string">
+        <!-- 具体的sql -->
+        SELECT
+        COUNT(*)
+        FROM
+        tb_user
+        WHERE
+        user_acount = #{user_acount} ;
+    </select>
+
+    <select id="countByEmail" resultType="int" parameterType="string">
+        <!-- 具体的sql -->
+        SELECT
+        COUNT(*)
+        FROM
+        tb_user
+        WHERE
+        user_email = #{user_email} ;
+    </select>
 
 </mapper>

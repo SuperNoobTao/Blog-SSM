@@ -3,6 +3,7 @@ package cn.edu.zucc.service;
 import cn.edu.zucc.dto.Message;
 import cn.edu.zucc.pojo.TbRoleEntity;
 import cn.edu.zucc.pojo.TbUserEntity;
+import cn.edu.zucc.pojo.UserExample;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /**
@@ -45,6 +46,10 @@ public interface UserService {
     public void saveNewUser(TbUserEntity user, int roleId);
 
 
+
+    public int countByAcount(String userAcount);
+
+    public int countByEmail(String userEmail);
 
 
 }

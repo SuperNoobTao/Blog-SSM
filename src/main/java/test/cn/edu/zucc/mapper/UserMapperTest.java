@@ -76,4 +76,15 @@ public class UserMapperTest{
 
     }
 
+
+
+    @Test
+    public void testCountByAcount() throws Exception {
+
+        int i = userMapper.countByAcount("21311112");
+        int j =  userMapper.countByEmail("3@3.com");
+        System.out.println(i);
+        System.out.println(j);
+
+    }
 }
