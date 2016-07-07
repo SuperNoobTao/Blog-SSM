@@ -1,6 +1,7 @@
 package test.cn.edu.zucc.service.impl; 
 
 import cn.edu.zucc.dto.Message;
+import cn.edu.zucc.mapper.UserMapper;
 import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 import org.junit.Test;
@@ -15,7 +16,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 * UserServiceImpl Tester. 
 * 
 * @author <Authors name> 
-* @since <pre>ÆßÔÂ 5, 2016</pre> 
+* @since <pre>ï¿½ï¿½ï¿½ï¿½ 5, 2016</pre> 
 * @version 1.0 
 */
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -24,6 +25,7 @@ public class UserServiceImplTest {
 
     @Autowired
     private UserService userService;
+
 
 @Before
 public void before() throws Exception { 
@@ -74,7 +76,30 @@ public void testLogin() throws Exception {
     System.out.println(execution);
 
 
-} 
+}
+    @Test
+    public void testSaveNewUser() throws Exception {
+//TODO: Test goes here...
+        String userAcount = "1";
+        String pwd = "1";
+        String userName = "æ²ˆæ¶›";
+        String user_sex = "ç”·";
+        String user_phone = "1516719522";
+        String user_email = "3@3.com";
+        java.sql.Timestamp now = new java.sql.Timestamp(System.currentTimeMillis());
+        TbUserEntity user =new TbUserEntity();
+        user.setUserAcount(userAcount);
+        user.setUserPwd(pwd);
+        user.setUserName(userName);
+        user.setUserSex(user_sex);
+        user.setUserPhone(user_phone);
+        user.setUserEmail(user_email);
+        user.setUserCdate(now);
 
+        userService.saveNewUser(user,1);
+
+
+
+    }
 
 } 

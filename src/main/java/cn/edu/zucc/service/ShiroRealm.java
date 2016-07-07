@@ -39,7 +39,7 @@ public class ShiroRealm extends AuthorizingRealm {
             //获取用户对应的角色列表
             TbRoleEntity roleList = roleMapper.QueryByUserId(user.getUserId());
 
-                info.addRole(roleList.getRolename());
+                info.addRole(roleList.getRoleName());
 
             return info;
         }

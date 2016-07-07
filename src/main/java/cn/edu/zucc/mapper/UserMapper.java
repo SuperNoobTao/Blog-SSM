@@ -1,5 +1,6 @@
 package cn.edu.zucc.mapper;
 
+import cn.edu.zucc.pojo.TbRoleEntity;
 import cn.edu.zucc.pojo.TbUserEntity;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
@@ -19,7 +20,6 @@ public interface UserMapper {
      */
     TbUserEntity queryById(@Param("user_id")long id);
 
-
     /**
      * 通过acount查询单个用户
      * @param userAcount
@@ -27,11 +27,29 @@ public interface UserMapper {
      */
     TbUserEntity queryByAcount(@Param("user_acount")String userAcount);
 
-
     /**
      * 查询在数据库里是否有此账号密码的用户
      * @param userAcount
      * @param pwd
      */
     TbUserEntity selectUser(@Param("user_acount")String userAcount, @Param("user_pwd")String pwd);
+
+    /**
+     * 在数据库中添加一个用户
+     * @param user
+     */
+    int save(TbUserEntity user);
+
+    /**
+     * 保存用户的角色的对应关系
+     * @param userId 用户Id
+     * @param roleId 角色ID
+     */
+    int saveUserAndRole(@Param("user_id")int userId, @Param("role_id")int roleId);
+
+
+
+
+
+
 }

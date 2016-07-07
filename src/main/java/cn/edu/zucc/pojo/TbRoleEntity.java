@@ -4,22 +4,22 @@ import java.io.Serializable;
 
 public class TbRoleEntity implements Serializable {
 
-    private Integer roleId;
+    private int roleId;
     private String roleName;
 
-    public Integer getId() {
+    public int getRoleId() {
         return roleId;
     }
 
-    public void setId(Integer id) {
+    public void setRoleId(int roleId) {
         this.roleId = roleId;
     }
 
-    public String getRolename() {
+    public String getRoleName() {
         return roleName;
     }
 
-    public void setRolename(String rolename) {
+    public void setRoleName(String roleName) {
         this.roleName = roleName;
     }
 

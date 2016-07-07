@@ -3,6 +3,7 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="cn.edu.zucc.mapper.UserMapper">
+    <cache/>
     <!-- 目的：为dao接口方法提供sql语句配置 -->
     <select id="queryById" resultType="TbUserEntity" parameterType="long">
         <!-- 具体的sql -->
@@ -43,6 +44,30 @@
         user_acount = #{user_acount} and user_pwd = #{user_pwd}
     </select>
 
+
+    <insert id="save" parameterType="TbUserEntity"  useGeneratedKeys="true" keyProperty="userId">
+        <!-- 具体的sql -->
+        INSERT INTO tb_user(user_acount,user_pwd,user_name,user_sex,user_phone,user_email,user_cdate)
+        VALUES(
+        #{userAcount},
+        #{userPwd},
+        #{userName},
+        #{userSex},
+        #{userPhone},
+        #{userEmail},
+        #{userCdate}
+        );
+
+    </insert>
+
+    <insert id="saveUserAndRole">
+        INSERT INTO role_user(user_id,role_id)
+        VALUES
+        (
+        #{user_id},
+        #{role_id}
+        )
+    </insert>
 
 
 </mapper>
