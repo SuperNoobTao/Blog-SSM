@@ -36,7 +36,7 @@ public interface UserService {
      * @param user
      * @param roleId
      */
-    public void saveNewUser(TbUserEntity user, int roleId);
+    public int saveNewUser(TbUserEntity user, int roleId);
 
     /**
      * 检查账号在数据库中是否存在

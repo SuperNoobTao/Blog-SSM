@@ -47,7 +47,7 @@
 
     <insert id="save" parameterType="TbUserEntity"  useGeneratedKeys="true" keyProperty="userId">
         <!-- 具体的sql -->
-        INSERT INTO tb_user(user_acount,user_pwd,user_name,user_sex,user_phone,user_email,user_cdate)
+        INSERT INTO tb_user(user_acount,user_pwd,user_name,user_sex,user_phone,user_email,user_cdate,user_state)
         VALUES(
         #{userAcount},
         #{userPwd},
@@ -55,7 +55,8 @@
         #{userSex},
         #{userPhone},
         #{userEmail},
-        #{userCdate}
+        #{userCdate},
+        #{userState}
         );
 
     </insert>

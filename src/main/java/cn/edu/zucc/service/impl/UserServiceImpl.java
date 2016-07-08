@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
+
 /**
  * Created by shentao on 2016/7/5.
  */
@@ -48,14 +50,17 @@ public class UserServiceImpl implements UserService {
      */
     @Override
     @Transactional
-    public void saveNewUser(TbUserEntity user, int roleId) {
+    public int saveNewUser(TbUserEntity user, int roleId) {
+        Timestamp now = new Timestamp(System.currentTimeMillis());
         user.setUserPwd(DigestUtils.md5Hex(user.getUserPwd()+passwordSalt));
         user.setUserState(user.USER_STATE_OK);
+        user.setUserCdate(now);
+        user.setUserSex("男");
         int i = userMapper.save(user);
         System.out.println("增加后的Id="+user.getUserId());
         //保存用户的角色的关系
         userMapper.saveUserAndRole(user.getUserId(),roleId);
-
+        return  i;
     }
 
     @Override

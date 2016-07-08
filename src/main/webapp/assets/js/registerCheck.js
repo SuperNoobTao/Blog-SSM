@@ -76,6 +76,36 @@ function checkUserName(obj) {
     name_flag=false;
     change_submit();
 }
+
+
+/*
+ * 注册检测
+ */
+function checkUserRigister(obj) {
+
+    // 调用Ajax函数,向服务器端发送查询
+    $.ajax({ //一个Ajax过程
+        type: "post", //以post方式与后台沟通
+        url :getRootPath()+"user/register/checkUserRegister", //与此页面沟通
+        data: $("#signupform").serialize(), //发给的数据
+        success: function(json){//如果调用成功
+            if(json.flag==true){
+                motaikuang_suc();
+            }else {
+                motaikuang_fail();
+            }
+        },
+        error: function(data) {
+            motaikuang_fail();
+        }
+    });
+}
+
+
+
+
+
+
 /*
  * 用户名检测是否包含非法字符
  */
@@ -99,6 +129,7 @@ function checkEmail(email) {
         email.className = "FrameDivWarn";
         showInfo("email_notice", email_invalid);
     } else {
+
         // 调用Ajax函数,向服务器端发送查询
         $.ajax({ //一个Ajax过程
             type: "post", //以post方式与后台沟通
@@ -108,9 +139,11 @@ function checkEmail(email) {
             success: function(json){//如果调用成功
                 if(json.flag){
                     showInfo("email_notice", email_have_register);
+                    document.getElementById("register").disabled=true;
                 }else {
                     showInfo("email_notice", email_can_register);
                     email_flag=true;
+                    document.getElementById("register").disabled=false;
                     change_submit();
                     return;
                 }
@@ -268,7 +301,7 @@ function change_submit()
     }
     else
     {
-        document.forms['formUser'].elements['Submit1'].disabled = 'disabled';
+        document.forms['formUser'].elements['register'].disabled = 'disabled';
     }
 }
 /*
@@ -279,4 +312,16 @@ function showInfo(target,Infos){
 }
 function showclass(target,Infos){
     document.getElementById(target).className = Infos;
-}       
+}
+
+function motaikuang_suc(){
+            $("#mymodal").modal("toggle");
+    }
+
+function motaikuang_fail(){
+    $("#mymodal").modal("toggle");
+}
+
+
+
+

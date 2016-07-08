@@ -77,14 +77,7 @@ public class UserController {
 
 
     }
-    @RequestMapping(value = "/register", method = RequestMethod.POST, produces = {
-            "application/json; charset=utf-8" })
-    private String register(@Valid TbUserEntity tbUserEntity, Model model, BindingResult bindingResult, HttpSession httpSession) {
 
-        userService.saveNewUser(tbUserEntity,3);
-
-        return "";
-    }
 
     @RequestMapping(value = "/register/checkUserName", method = RequestMethod.POST, produces = {
             "application/json; charset=utf-8" })
@@ -137,7 +130,40 @@ public class UserController {
 
     }
 
+    @RequestMapping(value = "/register/checkUserRegister", method = RequestMethod.POST,produces = {
+            "application/json; charset=utf-8" })
+    private String checkUserRegister( HttpServletRequest request, HttpServletResponse response,TbUserEntity tbUserEntity) throws IOException {
 
+        TbUserEntity user =new TbUserEntity();
+        user.setUserEmail(request.getParameter("userEmail"));
+        user.setUserAcount(request.getParameter("userAcount"));
+        user.setUserPwd(request.getParameter("userPwd"));
+        user.setUserPhone(request.getParameter("userPhone"));
+        user.setUserName(request.getParameter("userName"));
+
+        int num = userService.saveNewUser(user,3);
+        System.out.println("num为？大于0说明添加成功="+num);
+        //邮箱是否存在的标志
+        boolean flag=false;
+
+        if(num>0){
+            flag=true;
+        }
+        //将数据转换成json
+        Map<String,Object> map = new HashMap<String,Object>();
+        map.put("flag", flag);
+        System.out.println("flag是"+flag);
+        String json = JSONObject.valueToString(map).toString();
+        System.out.println(json);
+        //将数据返回
+        response.setCharacterEncoding("UTF-8");
+        response.flushBuffer();
+        response.getWriter().write(json);
+        response.getWriter().flush();
+        response.getWriter().close();
+        return null;
+
+    }
 
 
 
