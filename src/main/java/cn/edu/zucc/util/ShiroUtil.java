@@ -33,7 +33,7 @@ public class ShiroUtil {
      * @return
      */
     public static boolean isAdmin () {
-        return getSubject().hasRole("管理员");
+        return getSubject().hasRole("admin");
     }
 
     /**
@@ -41,7 +41,7 @@ public class ShiroUtil {
      * @return
      */
     public static boolean isManager() {
-        return getSubject().hasRole("编辑员");
+        return getSubject().hasRole("editor");
     }
 
     /**
@@ -49,7 +49,7 @@ public class ShiroUtil {
      * @return
      */
     public static boolean isEmployee() {
-        return getSubject().hasRole("游客");
+        return getSubject().hasRole("guest");
     }
 
 

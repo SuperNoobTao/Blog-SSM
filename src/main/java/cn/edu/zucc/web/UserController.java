@@ -7,7 +7,9 @@ import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.service.UserService;
 
 
+import com.google.gson.Gson;
 import org.apache.commons.codec.digest.DigestUtils;
+import org.apache.poi.util.SystemOutLogger;
 import org.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,6 +35,7 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -49,21 +52,42 @@ public class UserController {
     @Value("${user.salt}")
     private String passwordSalt;
 
+    /**
+     * 登录页
+     */
+    @RequestMapping(value = "/loginui", method = RequestMethod.GET)
+    public String login() {
+        logger.info("/page/loginui");
+        return "login";
+    }
+
+
+
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = {
             "application/json; charset=utf-8" })
         private String login(@Valid TbUserEntity tbUserEntity,RedirectAttributes redirectAttributes) {
         //获取认证主体，如果主体已存在，则将当前的主体退出
         Subject subject = SecurityUtils.getSubject();
+
+        if (subject.isAuthenticated()) {
+            return "redirect:/process/Jurisdiction";
+        }
+
         if(subject.isAuthenticated()) {
             subject.logout();
         }
+
         try {
             //登录，调用ShiroRealm类中的登录认证方法
             subject.login(new UsernamePasswordToken(tbUserEntity.getUserAcount(), DigestUtils.md5Hex(tbUserEntity.getUserPwd()+passwordSalt)));
+
+            System.out.println(passwordSalt);
+            System.out.println(tbUserEntity.getUserAcount());
+            System.out.println(DigestUtils.md5Hex(tbUserEntity.getUserPwd()+passwordSalt));
             //将登录的对象放入到Session中
             Session session = subject.getSession();
             session.setAttribute(tbUserEntity.SESSION_KEY,(TbUserEntity)subject.getPrincipal());
-            return "redirect:/home";
+            return "redirect:/process/Jurisdiction";
         } catch (LockedAccountException ex) {
             redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
             return "redirect:/";

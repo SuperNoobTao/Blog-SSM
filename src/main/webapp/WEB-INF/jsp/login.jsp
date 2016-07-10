@@ -48,7 +48,7 @@
     </div>
     <div class="tab-content">
         <div id="login" class="tab-pane active">
-            <form action="user/login" class="form-signin" method="post">
+            <form action="${pageContext.request.contextPath}/user/login" class="form-signin" method="post">
                 <p class="text-muted text-center btn-block btn btn-primary btn-rect">
                     Enter your username and password
                 </p>

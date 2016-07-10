@@ -7,16 +7,16 @@
                       http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
          version="3.1" metadata-complete="true">
   <!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
-  <!-- 配置DispatcherServlet -->
 
+  <!-- 配置DispatcherServlet -->
   <servlet>
     <servlet-name>seckill-dispatcher</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+
     <!-- 配置springMVC需要加载的配置文件
         spring-mapper.xml,spring-service.xml,spring-web.xml
         Mybatis - > spring -> springmvc
      -->
-
     <init-param>
       <param-name>contextConfigLocation</param-name>
       <param-value>classpath*:spring-*.xml</param-value>
@@ -33,12 +33,15 @@
   </listener>
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath*:spring-*.xml</param-value>
+    <param-value>
+      classpath*:spring-*.xml
+      classpath*:applicationContext-shiro.xml
+    </param-value>
   </context-param>
 
   <!-- 统一设置编码，防止出现中文乱码 -->
   <filter>
-    <filter-name>Set Character Encoding</filter-name>
+    <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
     <init-param>
       <param-name>encoding</param-name>
@@ -46,9 +49,40 @@
     </init-param>
   </filter>
   <filter-mapping>
-    <filter-name>Set Character Encoding</filter-name>
+    <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <!--Apache Shiro Filter-->
+  <filter>
+    <filter-name>shiroFilter</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+    <async-supported>true</async-supported>
+    <init-param>
+      <param-name>targetFilterLifecycle</param-name>
+      <param-value>true</param-value>
+    </init-param>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>shiroFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <!--Druid监控页面-->
+  <servlet>
+    <servlet-name>Druid</servlet-name>
+    <servlet-class>com.alibaba.druid.support.http.StatViewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Druid</servlet-name>
+    <url-pattern>/druid/*</url-pattern>
+  </servlet-mapping>
+
+  <!-- 首页 -->
+  <welcome-file-list>
+    <welcome-file>/user/loginui</welcome-file>
+  </welcome-file-list>
 
 
 </web-app>

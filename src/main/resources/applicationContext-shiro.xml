@@ -15,12 +15,17 @@
 
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
-        <property name="loginUrl" value="/"/>
+        <property name="loginUrl" value="/user/loginui"/>
         <property name="successUrl" value="/home"/>
         <property name="filterChainDefinitions">
             <value>
-                /static/** = anon
-                /account/** = roles[管理员]
+                <!-- 静态资源允许访问 -->
+                /assets/** = anon
+                <!-- 登录页允许访问 -->
+                /user/register/** = anon
+                /user/login = anon
+
+                <!-- 其他资源需要认证 -->
                 /** = authc
             </value>
         </property>

@@ -31,6 +31,7 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
+        System.out.println("进入权限认证方法");
         TbUserEntity shiroUser = (TbUserEntity) principalCollection.getPrimaryPrincipal();
 
         TbUserEntity user = userMapper.queryByAcount(shiroUser.getUserAcount());
@@ -55,9 +56,10 @@ public class ShiroRealm extends AuthorizingRealm {
      */
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-
+        System.out.println("进入登录方法");
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String acount = token.getUsername();
+
         TbUserEntity user = userMapper.queryByAcount(acount);
         if(user != null) {
             if(user.USER_STATE_DISABLE.equals(user.getUserState())) {

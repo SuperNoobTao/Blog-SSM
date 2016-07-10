@@ -17,6 +17,7 @@
     <project.deploy>deploy</project.deploy>
     <mybatis.version>3.2.6</mybatis.version>
     <shiro-version>1.2.4</shiro-version>
+    <guava-version>19.0</guava-version>
   </properties>
 
 
@@ -366,6 +367,52 @@
     <!--<version>8.0.32</version>-->
     <!--<scope>provided</scope>-->
     <!--</dependency>-->
+
+    <dependency>
+      <groupId>com.google.guava</groupId>
+      <artifactId>guava</artifactId>
+      <version>${guava-version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>joda-time</groupId>
+      <artifactId>joda-time</artifactId>
+      <version>2.5</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.qiniu</groupId>
+      <artifactId>qiniu-java-sdk</artifactId>
+      <version>7.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpclient</artifactId>
+      <version>4.3.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.httpcomponents</groupId>
+      <artifactId>httpcore</artifactId>
+      <version>4.3.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.16</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.quartz-scheduler</groupId>
+      <artifactId>quartz</artifactId>
+      <version>1.8.6</version>
+    </dependency>
+
+
+
+
   </dependencies>
   <build>
     <finalName>Run</finalName>
