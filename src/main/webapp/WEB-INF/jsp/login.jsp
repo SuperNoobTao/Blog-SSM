@@ -38,7 +38,11 @@
 
 <!-- BEGIN BODY -->
 <body >
-
+<%String s = session.getId(); //获取session ID号  %>
+<%=s %>
+<%
+    session.setAttribute("clj1", "clj20150527");
+%>
 <!-- PAGE CONTENT -->
 <div class="container">
 

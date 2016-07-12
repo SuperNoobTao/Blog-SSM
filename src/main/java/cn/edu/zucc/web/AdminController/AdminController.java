@@ -1,9 +1,13 @@
 package cn.edu.zucc.web.AdminController;
 
+import cn.edu.zucc.pojo.TbUserEntity;
 import cn.edu.zucc.util.RoleSign;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.crazycake.shiro.RedisManager;
+import org.crazycake.shiro.SerializeUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -30,6 +34,12 @@ public class AdminController {
     @RequiresRoles(value = RoleSign.ADMIN)
     public String mainGet(Model model, HttpSession httpSession) {
         logger.info("/admin/main");
+        RedisManager redisManager  = new RedisManager();
+        Subject currentUser = SecurityUtils.getSubject();
+        Session session = currentUser.getSession();
+        TbUserEntity user = (TbUserEntity) session.getAttribute(TbUserEntity.SESSION_KEY);
+        String key = TbUserEntity.SESSION_KEY;
+        redisManager.set(key.getBytes(), SerializeUtils.serialize(user));
 
         return "admin/main";
     }

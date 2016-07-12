@@ -87,6 +87,7 @@ public class UserController {
             //将登录的对象放入到Session中
             Session session = subject.getSession();
             session.setAttribute(tbUserEntity.SESSION_KEY,(TbUserEntity)subject.getPrincipal());
+            System.out.println((TbUserEntity)subject.getPrincipal());
             return "redirect:/process/Jurisdiction";
         } catch (LockedAccountException ex) {
             redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
