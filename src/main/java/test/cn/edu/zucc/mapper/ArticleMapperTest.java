@@ -117,13 +117,14 @@ public class ArticleMapperTest {
         int i = articleMapper.save(articleEntity);
         System.out.println(i);
 
-
-
-
-
     }
 
-
+    @Test
+    public void testDelete() throws Exception {
+       int articleId  = 56;
+       int i = articleMapper.delete(articleId);
+       System.out.println(i);
+    }
 
 
 }

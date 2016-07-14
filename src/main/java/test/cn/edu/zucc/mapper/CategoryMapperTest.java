@@ -33,6 +33,13 @@ public class CategoryMapperTest {
     }
 
     @Test
+    public void testFindById() throws Exception {
+        int categoryId = 15;
+        TbCategoryEntity categoryEntity = (TbCategoryEntity) categoryMapper.findById(categoryId);
+        System.out.println(categoryEntity);
+    }
+
+    @Test
     public void testFindAll() throws Exception {
 
         List<TbCategoryEntity> categoryEntity = (List<TbCategoryEntity>) categoryMapper.findAll();
@@ -85,6 +92,7 @@ public class CategoryMapperTest {
         int i = categoryMapper.update(categoryEntity);
         System.out.println(i);
     }
+
 
 
 }

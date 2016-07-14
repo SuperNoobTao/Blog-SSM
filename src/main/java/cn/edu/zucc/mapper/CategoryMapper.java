@@ -18,6 +18,13 @@ public interface CategoryMapper {
      */
     public TbCategoryEntity findByName(String categoryName) throws Exception;
 
+    /**
+     * 按ID查找类别
+     * @param id
+     * @return
+     * @throws Exception
+     */
+    public TbCategoryEntity findById(int id) throws Exception;
 
     /**
      * 查找所有的类别

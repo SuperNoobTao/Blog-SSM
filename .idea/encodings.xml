@@ -3,8 +3,8 @@
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/cn/edu/zucc/service/impl/UserServiceImpl.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/test.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/cn/edu/zucc/enums/StateEnumTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/main/java/test/cn/edu/zucc/service/impl/CategoryServiceImplTest.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/main/java/test/cn/edu/zucc/service/impl/UserServiceImplTest.java" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>

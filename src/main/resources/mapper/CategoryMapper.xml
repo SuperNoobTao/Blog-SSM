@@ -9,6 +9,14 @@
         WHERE category_name = #{categoryName};
     </select>
 
+    <select id="findById" resultType="TbCategoryEntity">
+        SELECT
+        *
+        FROM tb_category
+        WHERE category_id = #{categoryId};
+    </select>
+
+
     <select id="findAll" resultType="TbCategoryEntity">
         SELECT * FROM tb_category ;
     </select>
