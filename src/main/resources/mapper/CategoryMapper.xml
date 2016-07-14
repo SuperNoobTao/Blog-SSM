@@ -17,6 +17,29 @@
         SELECT count(*) FROM tb_category ;
     </select>
 
+    <insert id="save" parameterType="TbCategoryEntity"  useGeneratedKeys="true" keyProperty="categoryId">
+        <!-- 具体的sql -->
+        INSERT INTO tb_category(category_name,category_cdate,category_remark)
+        VALUES(
+        #{categoryName},
+        #{categoryCdate},
+        #{categoryRemark}
+        );
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from tb_category where category_id=#{categoryId}
+    </delete>
+
+    <update id="update" parameterType="TbCategoryEntity" >
+        update  tb_category
+        set
+        category_name=#{categoryName},
+        category_remark=#{categoryRemark}
+
+        where category_id=#{categoryId}
+    </update>
+
 
 
 </mapper>

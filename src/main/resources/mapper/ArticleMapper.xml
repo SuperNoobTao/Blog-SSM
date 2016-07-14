@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.edu.zucc.mapper.ArticleManager">
+<mapper namespace="cn.edu.zucc.mapper.ArticleMapper">
     <cache/>
     <update id="updateArticleInfo" >
      update
@@ -24,7 +24,7 @@
     WHERE a.category_id = c.category_id;
     </select>
 
-    <select id="findByIdinfo" resultType="TbArticleEntity" parameterType="int">
+    <select id="findByIdinfo" resultType="TbArticleEntity" parameterType="int" resultMap="articleMap2">
     SELECT *
     FROM tb_article where article_id = #{articleId};
     </select>
@@ -34,13 +34,57 @@
     FROM tb_article;
     </select>
 
-    <select id="findAllLastarticle" resultType="TbArticleEntity">
-    SELECT
+    <select id="findAllLastarticle" resultType="TbArticleEntity" resultMap="articleMap3">
+    SELECT * from tb_article  ORDER BY article_cdate desc limit 3;
     </select>
 
     <select id="findAllToparticle" resultType="TbArticleEntity">
-
+    SELECT * from tb_article  ORDER BY article_cdate desc limit 4;
     </select>
+
+    <insert id="save" parameterType="TbArticleEntity"  useGeneratedKeys="true" keyProperty="articleId">
+        <!-- 具体的sql -->
+        INSERT INTO tb_article(
+        article_author,article_likes,article_looks,
+        article_title,article_meta,article_content,
+        article_staticUrl,article_type,article_top,
+        article_remark,article_cdate,
+        user_id,category_id)
+        VALUES(
+        #{articleAuthor},
+        #{articleLikes},
+        #{articleLooks},
+        #{articleTitle},
+        #{articleMeta},
+        #{articleContent},
+        #{articleStaticUrl},
+        #{articleType},
+        #{articleTop},
+        #{articleRemark},
+        #{articleCdate},
+        #{userId},
+        #{categoryId}
+
+        );
+    </insert>
+
+    <delete id="delete" parameterType="int">
+        delete from tb_article where article_id=#{articleId}
+    </delete>
+
+    <!--<update id="update" parameterType="TbCategoryEntity" >-->
+        <!--update  tb_article-->
+        <!--set-->
+        <!--category_name=#{categoryName},-->
+        <!--category_remark=#{categoryRemark}-->
+        <!--where category_id=#{categoryId}-->
+    <!--</update>-->
+
+
+
+
+
+
 
     <!--获取全部的文章信息-->
     <resultMap id="articleMap1" type="TbArticleEntity">
@@ -69,7 +113,7 @@
         <result column="article_staticUrl" property="articleStaticUrl"/>
     </resultMap>
 
-    <!--获取表面的文章信息-->
+    <!--获取前三篇文章-->
     <resultMap id="articleMap3" type="TbArticleEntity">
         <id column="article_id" property="articleId"/>
         <result column="article_title" property="articleTitle"/>

@@ -8,7 +8,9 @@ import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Timestamp;
 import java.util.List;
 
 /**
@@ -43,6 +45,45 @@ public class CategoryMapperTest {
     public void testCount() throws Exception {
         long count = categoryMapper.getCount();
         System.out.println(count);
+    }
+
+
+
+    @Test
+    public void testSave() throws Exception {
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        String categoryName="st";
+        String categoryRemark="s1111t";
+        TbCategoryEntity categoryEntity = new TbCategoryEntity();
+        categoryEntity.setCategoryRemark(categoryRemark);
+        categoryEntity.setCategoryName(categoryName);
+        categoryEntity.setCategoryCdate(now);
+        int i = categoryMapper.save(categoryEntity);
+        System.out.println(i);
+    }
+
+
+    @Test
+    public void testDelete() throws Exception {
+        int categryId =14;
+        int i = categoryMapper.delete(categryId);
+        System.out.println(i);
+    }
+
+    @Test
+    public void testUpdate() throws Exception {
+        int categryId =13;
+
+        Timestamp now = new Timestamp(System.currentTimeMillis());
+        String categoryName="st1111";
+        String categoryRemark="s1111t1111111111";
+        TbCategoryEntity categoryEntity = new TbCategoryEntity();
+        categoryEntity.setCategoryRemark(categoryRemark);
+        categoryEntity.setCategoryName(categoryName);
+        categoryEntity.setCategoryCdate(now);
+        categoryEntity.setCategoryId(categryId);
+        int i = categoryMapper.update(categoryEntity);
+        System.out.println(i);
     }
 
 

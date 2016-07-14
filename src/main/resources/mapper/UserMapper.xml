@@ -51,7 +51,6 @@
         #{userCdate},
         #{userState}
         );
-
     </insert>
 
     <insert id="saveUserAndRole">

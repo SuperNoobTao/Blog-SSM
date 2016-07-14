@@ -69,9 +69,7 @@ public class UserController {
         //获取认证主体，如果主体已存在，则将当前的主体退出
         Subject subject = SecurityUtils.getSubject();
 
-        if (subject.isAuthenticated()) {
-            return "redirect:/process/Jurisdiction";
-        }
+
 
         if(subject.isAuthenticated()) {
             subject.logout();
