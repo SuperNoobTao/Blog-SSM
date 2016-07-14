@@ -21,11 +21,7 @@
 
     <select id="queryByAcount" resultType="TbUserEntity" parameterType="string">
         <!-- 具体的sql -->
-        SELECT
-        user_id,
-        user_acount,
-        user_pwd,
-        user_name
+        SELECT *
         FROM
         tb_user
         WHERE
@@ -34,11 +30,7 @@
 
     <select id="selectUser" resultType="TbUserEntity" >
         <!-- 具体的sql -->
-        SELECT
-        user_id,
-        user_acount,
-        user_pwd,
-        user_name
+        SELECT *
         FROM
         tb_user
         WHERE

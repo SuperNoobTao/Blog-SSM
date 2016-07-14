@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zucc.mapper.CategoryMapper">
+    <cache/>
+    <select id="findByName" resultType="TbCategoryEntity">
+        SELECT
+        *
+        FROM tb_category
+        WHERE category_name = #{categoryName};
+    </select>
+
+    <select id="findAll" resultType="TbCategoryEntity">
+        SELECT * FROM tb_category ;
+    </select>
+
+    <select id="getCount" resultType="long">
+        SELECT count(*) FROM tb_category ;
+    </select>
+
+
+
+</mapper>

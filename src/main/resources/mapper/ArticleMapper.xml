@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zucc.mapper.ArticleManager">
+    <cache/>
+    <update id="updateArticleInfo" >
+     update
+     tb_article
+     set
+     article_likes=#{articleLikes} ,
+     article_cdate=#{articleCdate} ,
+     article_looks=#{articleLooks} ,
+     article_staticUrl=#{articleStaticUrl}
+     where
+     article_id=#{articleId};
+    </update>
+
+    <select id="getCount" resultType="long">
+    SELECT count(*)
+    from tb_article;
+    </select>
+
+    <select id="findArticleList" resultMap="articleMap1" resultType="TbArticleEntity" >
+    SELECT a.*,c.* from tb_article a,tb_category c
+    WHERE a.category_id = c.category_id;
+    </select>
+
+    <select id="findByIdinfo" resultType="TbArticleEntity" parameterType="int">
+    SELECT *
+    FROM tb_article where article_id = #{articleId};
+    </select>
+
+    <select id="findByqQuery" resultType="TbArticleEntity">
+    SELECT article_id , article_title
+    FROM tb_article;
+    </select>
+
+    <select id="findAllLastarticle" resultType="TbArticleEntity">
+    SELECT
+    </select>
+
+    <select id="findAllToparticle" resultType="TbArticleEntity">
+
+    </select>
+
+    <!--获取全部的文章信息-->
+    <resultMap id="articleMap1" type="TbArticleEntity">
+        <id column="article_id" property="articleId"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_cdate" property="articleCdate"/>
+        <result column="article_looks" property="articleLooks"/>
+        <result column="article_likes" property="articleLikes"/>
+        <result column="article_meta" property="articleMeta"/>
+        <result column="article_type" property="articleType"/>
+        <result column="article_author" property="articleAuthor"/>
+        <result column="article_staticUrl" property="articleStaticUrl"/>
+        <result column="article_top" property="articleTop"/>
+        <association property="tbCategoryEntity" javaType="TbCategoryEntity">
+            <id column="category_id" property="categoryId"/>
+            <result column="category_name" property="categoryName"/>
+        </association>
+    </resultMap>
+
+    <!--获取表面的文章信息-->
+    <resultMap id="articleMap2" type="TbArticleEntity">
+        <id column="article_id" property="articleId"/>
+        <result column="article_looks" property="articleLooks"/>
+        <result column="article_likes" property="articleLikes"/>
+        <result column="article_cdate" property="articleCdate"/>
+        <result column="article_staticUrl" property="articleStaticUrl"/>
+    </resultMap>
+
+    <!--获取表面的文章信息-->
+    <resultMap id="articleMap3" type="TbArticleEntity">
+        <id column="article_id" property="articleId"/>
+        <result column="article_title" property="articleTitle"/>
+        <result column="article_staticUrl" property="articleStaticUrl"/>
+        <result column="article_cdate" property="articleCdate"/>
+        <result column="category_id" property="categoryId"/>
+    </resultMap>
+
+
+
+</mapper>

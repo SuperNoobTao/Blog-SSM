@@ -33,19 +33,18 @@ public class UserMapperTest{
     }
     @Test
     public void testQueryByAcount() throws Exception {
-        String userAcount = "1";
+        String userAcount = "123";
         TbUserEntity user = userMapper.queryByAcount(userAcount);
         System.out.println(user);
     }
 
     @Test
     public void testSelectUser() throws Exception {
-        String userAcount = "1";
+        String userAcount = "123";
         String pwd = "1";
         TbUserEntity user = userMapper.selectUser(userAcount,pwd);
         System.out.println("testSelectUser="+user);
     }
-
 
 
     @Test
@@ -70,13 +69,8 @@ public class UserMapperTest{
     }
     @Test
     public void testSaveUserAndRole() throws Exception {
-
         userMapper.saveUserAndRole(52,1);
-
-
     }
-
-
 
     @Test
     public void testCountByAcount() throws Exception {
