@@ -47,16 +47,31 @@ public class ArticleMapperTest {
         System.out.println(connt);
     }
 
+    @Test
+    public void testFindAll() throws Exception {
+        List<TbArticleEntity> articleEntities = articleMapper.findAll();
+        for (int i = 0;i<articleEntities.size();i++) {
+            System.out.print(articleEntities.get(i).toString());
+
+        }
+    }
 
     @Test
     public void testFindArticleList() throws Exception {
-        List<TbArticleEntity> articleEntities = (List<TbArticleEntity>) articleMapper.findArticleList();
+        List<TbArticleEntity> articleEntities = articleMapper.findArticleList();
         for (int i = 0;i<articleEntities.size();i++) {
             System.out.print(articleEntities.get(i).getArticleTitle());
             System.out.print(articleEntities.get(i).getTbCategoryEntity().getCategoryId());
             System.out.println(articleEntities.get(i).getTbCategoryEntity().getCategoryName());
         }
     }
+
+    @Test
+    public void testFindById() throws Exception {
+        TbArticleEntity tbArticleEntity = articleMapper.findByIdinfo(45);
+        System.out.println(tbArticleEntity.toString());
+    }
+
 
     @Test
     public void testFindByIdinfo() throws Exception {
@@ -79,7 +94,8 @@ public class ArticleMapperTest {
         List<TbArticleEntity> articleEntities = articleMapper.findAllLastarticle();
         for (int i = 0;i<articleEntities.size();i++) {
             System.out.print(articleEntities.get(i).getArticleId());
-            System.out.println(" "+articleEntities.get(i).getArticleTitle());
+            System.out.print(" "+articleEntities.get(i).getArticleTitle());
+            System.out.println(articleEntities.get(i).getTbCategoryEntity().getCategoryName());
 
         }
     }
@@ -90,8 +106,8 @@ public class ArticleMapperTest {
         List<TbArticleEntity> articleEntities = articleMapper.findAllToparticle();
         for (int i = 0;i<articleEntities.size();i++) {
             System.out.print(articleEntities.get(i).getArticleId());
-            System.out.println(" "+articleEntities.get(i).getArticleTitle());
-
+            System.out.print(" "+articleEntities.get(i).getArticleTitle());
+            System.out.println(articleEntities.get(i).getTbCategoryEntity().getCategoryName());
         }
     }
 

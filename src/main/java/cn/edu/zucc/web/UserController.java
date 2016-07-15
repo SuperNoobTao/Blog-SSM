@@ -86,10 +86,6 @@ public class UserController {
             Session session = subject.getSession();
             session.setAttribute(tbUserEntity.SESSION_KEY,(TbUserEntity)subject.getPrincipal());
             System.out.println((TbUserEntity)subject.getPrincipal());
-
-
-
-
             return "redirect:/process/Jurisdiction";
         } catch (LockedAccountException ex) {
             redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));

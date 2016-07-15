@@ -8,6 +8,7 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.crazycake.shiro.RedisManager;
 import org.crazycake.shiro.SerializeUtils;
+import org.hibernate.type.descriptor.java.UUIDTypeDescriptor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
@@ -34,13 +35,18 @@ public class AdminController {
     @RequiresRoles(value = RoleSign.ADMIN)
     public String mainGet(Model model, HttpSession httpSession) {
         logger.info("/admin/main");
+        String key = TbUserEntity.SESSION_KEY;
         RedisManager redisManager  = new RedisManager();
         Subject currentUser = SecurityUtils.getSubject();
         Session session = currentUser.getSession();
-        TbUserEntity user = (TbUserEntity) session.getAttribute(TbUserEntity.SESSION_KEY);
-        String key = TbUserEntity.SESSION_KEY;
-        redisManager.set(key.getBytes(), SerializeUtils.serialize(user));
+        TbUserEntity user = (TbUserEntity) session.getAttribute(key);
 
+        byte[] obj = redisManager.get(key.getBytes());
+        if (obj != null) {
+            TbUserEntity userInRedis = (TbUserEntity) SerializeUtils.deserialize(obj);
+        }else{
+        logger.info("redis缓存中并无此数据");
+        redisManager.set(key.getBytes(), SerializeUtils.serialize(user));}
         return "admin/main";
     }
 

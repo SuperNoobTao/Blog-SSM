@@ -19,9 +19,19 @@
     from tb_article;
     </select>
 
+    <select id="findAll" resultType="TbArticleEntity">
+        SELECT *
+        from tb_article;
+    </select>
+
     <select id="findArticleList" resultMap="articleMap1" resultType="TbArticleEntity" >
     SELECT a.*,c.* from tb_article a,tb_category c
     WHERE a.category_id = c.category_id;
+    </select>
+
+    <select id="findById" resultType="TbArticleEntity" parameterType="int" >
+        SELECT *
+        FROM tb_article where article_id = #{articleId};
     </select>
 
     <select id="findByIdinfo" resultType="TbArticleEntity" parameterType="int" resultMap="articleMap2">
@@ -34,12 +44,16 @@
     FROM tb_article;
     </select>
 
-    <select id="findAllLastarticle" resultType="TbArticleEntity" resultMap="articleMap3">
-    SELECT * from tb_article  ORDER BY article_cdate desc limit 3;
+    <select id="findAllLastarticle" resultType="TbArticleEntity" resultMap="articleMap1">
+    SELECT a.*,c.* from tb_article a,tb_category c
+    WHERE a.category_id = c.category_id
+    ORDER BY article_cdate desc limit 3;
     </select>
 
-    <select id="findAllToparticle" resultType="TbArticleEntity">
-    SELECT * from tb_article  ORDER BY article_cdate desc limit 4;
+    <select id="findAllToparticle" resultType="TbArticleEntity" resultMap="articleMap1">
+    SELECT a.*,c.* from tb_article a,tb_category c
+    WHERE a.category_id = c.category_id
+    ORDER BY article_cdate desc limit 4;
     </select>
 
     <insert id="save" parameterType="TbArticleEntity"  useGeneratedKeys="true" keyProperty="articleId">

@@ -11,7 +11,7 @@
 <div class="header-wrapper opacity">
   <div class="header">
     <div class="logo">
-      <a href="">
+      <a href="${pageContext.request.contextPath}/">
         <h1>红茶先森的博客</h1>
       </a>
     </div>
@@ -20,7 +20,7 @@
       <div id="menu" class="menu">
         <ul id="tiny">
           <li class="active">
-            <a href="">博客</a>
+            <a href="${pageContext.request.contextPath}/">博客</a>
             <ul>
               <li><a href="${pageContext.request.contextPath}/listArticle.action">所有博文</a></li>
             </ul>
@@ -34,12 +34,14 @@
           <li>
             <a href="${pageContext.request.contextPath}/commentUI.action" title="给我留言">留言板</a>
           </li>
+
+
           <li><a href="#">Menu</a>
             <ul>
-              <li><a href="/s/">仓库管理系统</a></li>
-              <li><a href="/WorkUpload/">你画我猜小游戏</a></li>
-              <li><a href="/uShare/">IOnline</a></li>
-              <li><a href="${pageContext.request.contextPath}/UserAction_loginui.action">管理员</a></li>
+              <li><a href="">仓库管理系统</a></li>
+              <li><a href="">你画我猜小游戏</a></li>
+              <li><a href="">IOnline</a></li>
+              <li><a href="">管理员</a></li>
             </ul>
           </li>
         </ul>

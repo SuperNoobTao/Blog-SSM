@@ -1,1051 +1,144 @@
-﻿<!DOCTYPE html>
-<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
-<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
-<!-- BEGIN HEAD -->
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!doctype html>
+<html class="no-js fixed-layout">
 <head>
-    <meta charset="UTF-8" />
-    <title>BCORE Admin Dashboard Template | Dashboard </title>
-     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-     <!--[if IE]>
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <![endif]-->
-    <!-- GLOBAL STYLES -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/bootstrap/css/bootstrap.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/main.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/theme.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/MoneAdmin.css" />
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/Font-Awesome/css/font-awesome.css" />
-    <!--END GLOBAL STYLES -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>红茶先森的博客后台</title>
+  <meta name="description" content="这是一个 index 页面">
+  <meta name="keywords" content="index">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="icon" type="image/png" href="${pageContext.request.contextPath}/assets/i/favicon.png">
+  <link rel="apple-touch-icon-precomposed" href="${pageContext.request.contextPath}/assets/i/app-icon72x72@2x.png">
+  <meta name="apple-mobile-web-app-title" content="Amaze UI" />
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/css/admin.css">
 
-    <!-- PAGE LEVEL STYLES -->
-    <link href="${pageContext.request.contextPath}/assets/css/layout2.css" rel="stylesheet" />
-       <link href="${pageContext.request.contextPath}/assets/plugins/flot/examples/examples.css" rel="stylesheet" />
-       <link rel="stylesheet" href="${pageContext.request.contextPath}/assets/plugins/timeline/timeline.css" />
-    <!-- END PAGE LEVEL  STYLES -->
-     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
 </head>
+<body>
 
-    <!-- END HEAD -->
 
-    <!-- BEGIN BODY -->
-<body class="padTop53 " >
+<%@include file="/WEB-INF/jsp/public/menu.jsp"%>
 
-    <!-- MAIN WRAPPER -->
-    <div id="wrap" >
-        
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">欢迎您来到博客后台</strong></div>
+      </div>
 
-        <!-- HEADER SECTION -->
-        <div id="top">
+      <ul class="am-avg-sm-1 am-avg-md-4 am-margin am-padding am-text-center admin-content-list ">
+        <li><a href="#" class="am-text-success"><span class="am-icon-btn am-icon-file-text"></span><br/>新增页面<br/>2300</a></li>
+        <li><a href="#" class="am-text-warning"><span class="am-icon-btn am-icon-briefcase"></span><br/>成交订单<br/>308</a></li>
+        <li><a href="#" class="am-text-danger"><span class="am-icon-btn am-icon-recycle"></span><br/>昨日访问<br/>80082</a></li>
+        <li><a href="#" class="am-text-secondary"><span class="am-icon-btn am-icon-user-md"></span><br/>在线用户<br/>3000</a></li>
+      </ul>
 
-            <nav class="navbar navbar-inverse navbar-fixed-top " style="padding-top: 10px;">
-                <a data-original-title="Show/Hide Menu" data-placement="bottom" data-tooltip="tooltip" class="accordion-toggle btn btn-primary btn-sm visible-xs" data-toggle="collapse" href="#menu" id="menu-toggle">
-                    <i class="icon-align-justify"></i>
-                </a>
-                <!-- LOGO SECTION -->
-                <header class="navbar-header">
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <table class="am-table am-table-bd am-table-striped admin-content-table">
+            <thead>
+            <tr>
+              <th>ID</th><th>用户名</th><th>最后成交任务</th><th>成交订单</th><th>管理</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr><td>1</td><td>John Clark</td><td><a href="#">Business management</a></td> <td><span class="am-badge am-badge-success">+20</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
+            </tr>
+            <tr><td>2</td><td>风清扬</td><td><a href="#">公司LOGO设计</a> </td><td><span class="am-badge am-badge-danger">+2</span></td>
+              <td>
+                <div class="am-dropdown" data-am-dropdown>
+                  <button class="am-btn am-btn-default am-btn-xs am-dropdown-toggle" data-am-dropdown-toggle><span class="am-icon-cog"></span> <span class="am-icon-caret-down"></span></button>
+                  <ul class="am-dropdown-content">
+                    <li><a href="#">1. 编辑</a></li>
+                    <li><a href="#">2. 下载</a></li>
+                    <li><a href="#">3. 删除</a></li>
+                  </ul>
+                </div>
+              </td>
 
-                    <a href="index.html" class="navbar-brand">
-                    <img src="${pageContext.request.contextPath}/assets/img/logo.png" alt="" />
-                        
-                        </a>
-                </header>
-                <!-- END LOGO SECTION -->
-                <ul class="nav navbar-top-links navbar-right">
-
-                    <!-- MESSAGES SECTION -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="label label-success">2</span>    <i class="icon-envelope-alt"></i>&nbsp; <i class="icon-chevron-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-messages">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                       <strong>John Smith</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>Today</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                                        <br />
-                                        <span class="label label-primary">Important</span> 
-
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <strong>Raphel Jonson</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>Yesterday</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                                         <br />
-                                        <span class="label label-success"> Moderate </span> 
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <strong>Chi Ley Suk</strong>
-                                        <span class="pull-right text-muted">
-                                            <em>26 Jan 2014</em>
-                                        </span>
-                                    </div>
-                                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing.
-                                         <br />
-                                        <span class="label label-danger"> Low </span> 
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>Read All Messages</strong>
-                                    <i class="icon-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <!--END MESSAGES SECTION -->
-
-                    <!--TASK SECTION -->
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="label label-danger">5</span>   <i class="icon-tasks"></i>&nbsp; <i class="icon-chevron-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-tasks">
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong> Profile </strong>
-                                            <span class="pull-right text-muted">40% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                                <span class="sr-only">40% Complete (success)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong> Pending Tasks </strong>
-                                            <span class="pull-right text-muted">20% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-                                                <span class="sr-only">20% Complete</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong> Work Completed </strong>
-                                            <span class="pull-right text-muted">60% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                                <span class="sr-only">60% Complete (warning)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <p>
-                                            <strong> Summary </strong>
-                                            <span class="pull-right text-muted">80% Complete</span>
-                                        </p>
-                                        <div class="progress progress-striped active">
-                                            <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                                <span class="sr-only">80% Complete (danger)</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Tasks</strong>
-                                    <i class="icon-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <!--END TASK SECTION -->
-
-                    <!--ALERTS SECTION -->
-                    <li class="chat-panel dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <span class="label label-info">8</span>   <i class="icon-comments"></i>&nbsp; <i class="icon-chevron-down"></i>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-alerts">
-
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="icon-comment" ></i> New Comment
-                                    <span class="pull-right text-muted small"> 4 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="icon-twitter info"></i> 3 New Follower
-                                    <span class="pull-right text-muted small"> 9 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="icon-envelope"></i> Message Sent
-                                    <span class="pull-right text-muted small" > 20 minutes ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="icon-tasks"></i> New Task
-                                    <span class="pull-right text-muted small"> 1 Hour ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a href="#">
-                                    <div>
-                                        <i class="icon-upload"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"> 2 Hour ago</span>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li>
-                                <a class="text-center" href="#">
-                                    <strong>See All Alerts</strong>
-                                    <i class="icon-angle-right"></i>
-                                </a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <!-- END ALERTS SECTION -->
-
-                    <!--ADMIN SETTINGS SECTIONS -->
-
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                            <i class="icon-user "></i>&nbsp; <i class="icon-chevron-down "></i>
-                        </a>
-
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="#"><i class="icon-user"></i> User Profile </a>
-                            </li>
-                            <li><a href="#"><i class="icon-gear"></i> Settings </a>
-                            </li>
-                            <li class="divider"></li>
-                            <li><a href="login.html"><i class="icon-signout"></i> Logout </a>
-                            </li>
-                        </ul>
-
-                    </li>
-                    <!--END ADMIN SETTINGS -->
-                </ul>
-
-            </nav>
-
+            </tbody>
+          </table>
         </div>
-        <!-- END HEADER SECTION -->
+      </div>
 
 
 
-        <!-- MENU SECTION -->
-       <div id="left" >
-            <div class="media user-media well-small">
-                <a class="user-link" href="#">
-                    <img class="media-object img-thumbnail user-img" alt="User Picture" src="${pageContext.request.contextPath}/assets/img/user.gif" />
-                </a>
-                <br />
-                <div class="media-body">
-                    <h5 class="media-heading"> Joe Romlin</h5>
-                    <ul class="list-unstyled user-info">
-                        
-                        <li>
-                             <a class="btn btn-success btn-xs btn-circle" style="width: 10px;height: 12px;"></a> Online
-                           
-                        </li>
-                       
-                    </ul>
-                </div>
-                <br />
+          <div class="am-panel am-panel-default">
+            <div class="am-panel-hd am-cf" data-am-collapse="{target: '#collapse-panel-3'}">最近留言<span class="am-icon-chevron-down am-fr" ></span></div>
+            <div class="am-panel-bd am-collapse am-in am-cf" id="collapse-panel-3">
+              <ul class="am-comments-list admin-content-comment">
+                <li class="am-comment">
+                  <a href="#"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
+                  <div class="am-comment-main">
+                    <header class="am-comment-hd">
+                      <div class="am-comment-meta"><a href="#" class="am-comment-author">某人</a> 评论于 <time>2014-7-12 15:30</time></div>
+                    </header>
+                    <div class="am-comment-bd"><p>遵循 “移动优先（Mobile First）”、“渐进增强（Progressive enhancement）”的理念，可先从移动设备开始开发网站，逐步在扩展的更大屏幕的设备上，专注于最重要的内容和交互，很好。</p>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="am-comment">
+                  <a href="#"><img src="http://s.amazeui.org/media/i/demos/bw-2014-06-19.jpg?imageView/1/w/96/h/96" alt="" class="am-comment-avatar" width="48" height="48"></a>
+                  <div class="am-comment-main">
+                    <header class="am-comment-hd">
+                      <div class="am-comment-meta"><a href="#" class="am-comment-author">某人</a> 评论于 <time>2014-7-12 15:30</time></div>
+                    </header>
+                    <div class="am-comment-bd"><p>有效减少为兼容旧浏览器的臃肿代码；基于 CSS3 的交互效果，平滑、高效。AMUI专注于现代浏览器（支持HTML5），不再为过时的浏览器耗费资源，为更有价值的用户提高更好的体验。</p>
+                    </div>
+                  </div>
+                </li>
+
+              </ul>
+              <ul class="am-pagination am-fr admin-content-pagination">
+                <li class="am-disabled"><a href="#">&laquo;</a></li>
+                <li class="am-active"><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li><a href="#">5</a></li>
+                <li><a href="#">&raquo;</a></li>
+              </ul>
             </div>
-
-            <ul id="menu" class="collapse">
-
-                
-                <li class="panel active">
-                    <a href="index.html" >
-                        <i class="icon-table"></i> Dashboard
-	   
-                       
-                    </a>                   
-                </li>
-
-
-
-                <li class="panel ">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#component-nav">
-                        <i class="icon-tasks"> </i> UI Elements     
-	   
-                        <span class="pull-right">
-                          <i class="icon-angle-left"></i>
-                        </span>
-                       &nbsp; <span class="label label-default">10</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="component-nav">
-                       
-                        <li class=""><a href="button.html"><i class="icon-angle-right"></i> Buttons </a></li>
-                         <li class=""><a href="icon.html"><i class="icon-angle-right"></i> Icons </a></li>
-                        <li class=""><a href="progress.html"><i class="icon-angle-right"></i> Progress </a></li>
-                        <li class=""><a href="tabs_panels.html"><i class="icon-angle-right"></i> Tabs & Panels </a></li>
-                        <li class=""><a href="notifications.html"><i class="icon-angle-right"></i> Notification </a></li>
-                         <li class=""><a href="more_notifications.html"><i class="icon-angle-right"></i> More Notification </a></li>
-                        <li class=""><a href="modals.html"><i class="icon-angle-right"></i> Modals </a></li>
-                          <li class=""><a href="wizard.html"><i class="icon-angle-right"></i> Wizard </a></li>
-                         <li class=""><a href="sliders.html"><i class="icon-angle-right"></i> Sliders </a></li>
-                        <li class=""><a href="typography.html"><i class="icon-angle-right"></i> Typography </a></li>
-                    </ul>
-                </li>
-                <li class="panel ">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle collapsed" data-target="#form-nav">
-                        <i class="icon-pencil"></i> Forms
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                          &nbsp; <span class="label label-success">5</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="form-nav">
-                        <li class=""><a href="forms_general.html"><i class="icon-angle-right"></i> General </a></li>
-                        <li class=""><a href="forms_advance.html"><i class="icon-angle-right"></i> Advance </a></li>
-                        <li class=""><a href="forms_validation.html"><i class="icon-angle-right"></i> Validation </a></li>
-                        <li class=""><a href="forms_fileupload.html"><i class="icon-angle-right"></i> FileUpload </a></li>
-                        <li class=""><a href="../../forms_editors.html"><i class="icon-angle-right"></i> WYSIWYG / Editor </a></li>
-                    </ul>
-                </li>
-
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#pagesr-nav">
-                        <i class="icon-table"></i> Pages
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                          &nbsp; <span class="label label-info">6</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="pagesr-nav">
-                        <li><a href="pages_calendar.html"><i class="icon-angle-right"></i> Calendar </a></li>
-                        <li><a href="pages_timeline.html"><i class="icon-angle-right"></i> Timeline </a></li>
-                        <li><a href="pages_social.html"><i class="icon-angle-right"></i> Social </a></li>
-                        <li><a href="pages_pricing.html"><i class="icon-angle-right"></i> Pricing </a></li>
-                        <li><a href="pages_offline.html"><i class="icon-angle-right"></i> Offline </a></li>
-                        <li><a href="pages_uc.html"><i class="icon-angle-right"></i> Under Construction </a></li>
-                    </ul>
-                </li>
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#chart-nav">
-                        <i class="icon-bar-chart"></i> Charts
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                          &nbsp; <span class="label label-danger">4</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="chart-nav">
-
-
-
-                        <li><a href="charts_line.html"><i class="icon-angle-right"></i> Line Charts </a></li>
-                        <li><a href="charts_bar.html"><i class="icon-angle-right"></i> Bar Charts</a></li>
-                        <li><a href="charts_pie.html"><i class="icon-angle-right"></i> Pie Charts </a></li>
-                        <li><a href="charts_other.html"><i class="icon-angle-right"></i> other Charts </a></li>
-                    </ul>
-                </li>
-
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#DDL-nav">
-                        <i class=" icon-sitemap"></i> 3 Level Menu
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                    </a>
-                    <ul class="collapse" id="DDL-nav">
-                        <li>
-                            <a href="#" data-parent="#DDL-nav" data-toggle="collapse" class="accordion-toggle" data-target="#DDL1-nav">
-                                <i class="icon-sitemap"></i>&nbsp; Demo Link 1
-	   
-                        <span class="pull-right" style="margin-right: 20px;">
-                            <i class="icon-angle-left"></i>
-                        </span>
-
-
-                            </a>
-                            <ul class="collapse" id="DDL1-nav">
-                                <li>
-                                    <a href="#"><i class="icon-angle-right"></i> Demo Link 1 </a>
-
-                                </li>
-                                <li>
-                                    <a href="#"><i class="icon-angle-right"></i> Demo Link 2 </a></li>
-                                <li>
-                                    <a href="#"><i class="icon-angle-right"></i> Demo Link 3 </a></li>
-
-                            </ul>
-
-                        </li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 2 </a></li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 3 </a></li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 4 </a></li>
-                    </ul>
-                </li>
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#DDL4-nav">
-                        <i class=" icon-folder-open-alt"></i> 4 Level Menu
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                    </a>
-                    <ul class="collapse" id="DDL4-nav">
-                        <li>
-                            <a href="#" data-parent="DDL4-nav" data-toggle="collapse" class="accordion-toggle" data-target="#DDL4_1-nav">
-                                <i class="icon-sitemap"></i>&nbsp; Demo Link 1
-	   
-                        <span class="pull-right" style="margin-right: 20px;">
-                            <i class="icon-angle-left"></i>
-                        </span>
-
-
-                            </a>
-                            <ul class="collapse" id="DDL4_1-nav">
-                                <li>
-
-                                    <a href="#" data-parent="#DDL4_1-nav" data-toggle="collapse" class="accordion-toggle" data-target="#DDL4_2-nav">
-                                        <i class="icon-sitemap"></i>&nbsp; Demo Link 1
-	   
-                        <span class="pull-right" style="margin-right: 20px;">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                                    </a>
-                                    <ul class="collapse" id="DDL4_2-nav">
-
-
-
-                                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 1 </a></li>
-                                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 2 </a></li>
-                                    </ul>
-
-
-
-                                </li>
-                                <li><a href="#"><i class="icon-angle-right"></i> Demo Link 2 </a></li>
-                                <li><a href="#"><i class="icon-angle-right"></i> Demo Link 3 </a></li>
-                            </ul>
-
-                        </li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 2 </a></li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 3 </a></li>
-                        <li><a href="#"><i class="icon-angle-right"></i> Demo Link 4 </a></li>
-                    </ul>
-                </li>
-                <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#error-nav">
-                        <i class="icon-warning-sign"></i> Error Pages
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                          &nbsp; <span class="label label-warning">5</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="error-nav">
-                        <li><a href="errors_403.html"><i class="icon-angle-right"></i> Error 403  </a></li>
-                        <li><a href="errors_404.html"><i class="icon-angle-right"></i> Error 404  </a></li>
-                        <li><a href="errors_405.html"><i class="icon-angle-right"></i> Error 405  </a></li>
-                        <li><a href="errors_500.html"><i class="icon-angle-right"></i> Error 500  </a></li>
-                        <li><a href="errors_503.html"><i class="icon-angle-right"></i> Error 503  </a></li>
-                    </ul>
-                </li>
-
-
-                <li><a href="gallery.html"><i class="icon-film"></i> Image Gallery </a></li>
-                <li><a href="tables.html"><i class="icon-table"></i> Data Tables </a></li>
-                <li><a href="maps.html"><i class="icon-map-marker"></i> Maps </a></li>
-
-                <li><a href="grid.html"><i class="icon-columns"></i> Grid </a></li>
-                 <li class="panel">
-                    <a href="#" data-parent="#menu" data-toggle="collapse" class="accordion-toggle" data-target="#blank-nav">
-                        <i class="icon-check-empty"></i> Blank Pages
-	   
-                        <span class="pull-right">
-                            <i class="icon-angle-left"></i>
-                        </span>
-                         &nbsp; <span class="label label-success">2</span>&nbsp;
-                    </a>
-                    <ul class="collapse" id="blank-nav">
-                       
-                        <li><a href="blank.html"><i class="icon-angle-right"></i> Blank Page One  </a></li>
-                        <li><a href="blank2.html"><i class="icon-angle-right"></i> Blank Page Two  </a></li>
-                    </ul>
-                </li>
-                <li><a href="login.html"><i class="icon-signin"></i> Login Page </a></li>
-
-            </ul>
-
+          </div>
         </div>
-        <!--END MENU SECTION -->
-
-
-
-        <!--PAGE CONTENT -->
-        <div id="content">
-             
-            <div class="inner" style="min-height: 700px;">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1> Admin Dashboard </h1>
-                    </div>
-                </div>
-                  <hr />
-                 <!--BLOCK SECTION -->
-                 <div class="row">
-                    <div class="col-lg-12">
-                        <div style="text-align: center;">
-                           
-                            <a class="quick-btn" href="#">
-                                <i class="icon-check icon-2x"></i>
-                                <span> Products</span>
-                                <span class="label label-danger">2</span>
-                            </a>
-
-                            <a class="quick-btn" href="#">
-                                <i class="icon-envelope icon-2x"></i>
-                                <span>Messages</span>
-                                <span class="label label-success">456</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-signal icon-2x"></i>
-                                <span>Profit</span>
-                                <span class="label label-warning">+25</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-external-link icon-2x"></i>
-                                <span>value</span>
-                                <span class="label btn-metis-2">3.14159265</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-lemon icon-2x"></i>
-                                <span>tasks</span>
-                                <span class="label btn-metis-4">107</span>
-                            </a>
-                            <a class="quick-btn" href="#">
-                                <i class="icon-bolt icon-2x"></i>
-                                <span>Tickets</span>
-                                <span class="label label-default">20</span>
-                            </a>
-
-                            
-                            
-                        </div>
-
-                    </div>
-
-                </div>
-                  <!--END BLOCK SECTION -->
-                <hr />
-                   <!-- CHART & CHAT  SECTION -->
-
-                 <!-- COMMENT AND NOTIFICATION  SECTION -->
-                <div class="row">
-                    <div class="col-lg-7">
-
-                        <div class="chat-panel panel panel-success">
-                            <div class="panel-heading">
-                                <i class="icon-comments"></i>
-                                New Comments
-                            
-                            </div>
-
-                            <div class="panel-body">
-                                <ul class="chat">
-                                    <li class="left clearfix">
-                                        <span class="chat-img pull-left">
-                                            <img src="${pageContext.request.contextPath}/assets/img/1.png" alt="User Avatar" class="img-circle" />
-                                        </span>
-                                        <div class="chat-body clearfix">
-                                            <div class="header">
-                                                <strong class="primary-font "> Jack Sparrow </strong>
-                                                <small class="pull-right text-muted label label-danger">
-                                                    <i class="icon-time"></i> 12 mins ago
-                                                </small>
-                                            </div>
-                                             <br />
-                                            <p>
-                                                Lorem ipsum dolor sit amet, bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="right clearfix">
-                                        <span class="chat-img pull-right">
-                                            <img src="${pageContext.request.contextPath}/assets/img/2.png" alt="User Avatar" class="img-circle" />
-                                        </span>
-                                        <div class="chat-body clearfix">
-                                            <div class="header">
-                                                <small class=" text-muted label label-info">
-                                                    <i class="icon-time"></i> 13 mins ago</small>
-                                                <strong class="pull-right primary-font"> Jhony Deen</strong>
-                                            </div>
-                                            <br />
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur a dolor, quis ullamcorper ligula sodales.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="left clearfix">
-                                        <span class="chat-img pull-left">
-                                            <img src="${pageContext.request.contextPath}/assets/img/3.png" alt="User Avatar" class="img-circle" />
-                                        </span>
-                                        <div class="chat-body clearfix">
-                                            <div class="header">
-                                                <strong class="primary-font"> Jack Sparrow </strong>
-                                                <small class="pull-right text-muted label label-warning">
-                                                    <i class="icon-time"></i> 12 mins ago
-                                                </small>
-                                            </div>
-                                             <br />
-                                            <p>
-                                                Lorem ipsum dolor sit amet, bibendum ornare dolor, quis ullamcorper ligula sodales.
-                                            </p>
-                                        </div>
-                                    </li>
-                                    <li class="right clearfix">
-                                        <span class="chat-img pull-right">
-                                            <img src="${pageContext.request.contextPath}/assets/img/4.png" alt="User Avatar" class="img-circle" />
-                                        </span>
-                                        <div class="chat-body clearfix">
-                                            <div class="header">
-                                                <small class=" text-muted label label-primary">
-                                                    <i class="icon-time"></i> 13 mins ago</small>
-                                                <strong class="pull-right primary-font"> Jhony Deen</strong>
-                                            </div>
-                                            <br />
-                                            <p>
-                                                Lorem ipsum dolor sit amet, consectetur a dolor, quis ullamcorper ligula sodales.
-                                            </p>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="panel-footer">
-                                <div class="input-group">
-                                    <input id="btn-input" type="text" class="form-control input-sm" placeholder="Type your comment here..." />
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-success btn-sm" id="btn-chat">
-                                            Send
-                                        </button>
-                                    </span>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </div>
-                    <div class="col-lg-5">
-                         
-                       <div class="panel panel-danger">
-                            <div class="panel-heading">
-                                <i class="icon-bell"></i> Notifications Alerts Panel
-                            </div>
-
-                            <div class="panel-body">
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <i class=" icon-comment"></i> New Comment
-                                    <span class="pull-right text-muted small"><em> 4 minutes ago</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-twitter"></i> 3 New Followers
-                                    <span class="pull-right text-muted small"><em> 12 minutes ago</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-envelope"></i> Message Sent
-                                    <span class="pull-right text-muted small"><em> 27 minutes ago</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-tasks"></i> New Task
-                                    <span class="pull-right text-muted small"><em>43 minutes ago</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-upload"></i> Server Rebooted
-                                    <span class="pull-right text-muted small"><em>11:32 AM</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-warning-sign"></i> Server Crashed!
-                                    <span class="pull-right text-muted small"><em>11:13 AM</em>
-                                    </span>
-                                    </a>
-                                   
-                                    <a href="#" class="list-group-item">
-                                        <i class="icon-ok"></i> New Order Placed
-                                    <span class="pull-right text-muted small"><em>9:49 AM</em>
-                                    </span>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <i class=" icon-money"></i> Payment Received
-                                    <span class="pull-right text-muted small"><em>Yesterday</em>
-                                    </span>
-                                    </a>
-                                </div>
-
-                                <a href="#" class="btn btn-default btn-block btn-primary">View All Alerts</a>
-                            </div>
-
-                        </div>
-
-                          
-                    
-                    </div>
-                </div>
-                <!-- END COMMENT AND NOTIFICATION  SECTION -->
-                
-
-                
-
-
-
-
-                 <!--TABLE, PANEL, ACCORDION AND MODAL  -->
-                          <div class="row">
-                    <div class="col-lg-6">
-                        <div class="box">
-                            <header>
-                                <h5>Simple Table</h5>
-                                <div class="toolbar">
-                                    <div class="btn-group">
-                                        <a href="#sortableTable" data-toggle="collapse" class="btn btn-default btn-sm accordion-toggle minimize-box">
-                                            <i class="icon-chevron-up"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </header>
-                            <div id="sortableTable" class="body collapse in">
-                                <table class="table table-bordered sortableTable responsive-table">
-                                    <thead>
-                                        <tr>
-                                            <th>#<i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
-                                            <th>First Name<i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
-                                            <th>Last Name<i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
-                                            <th>Score<i class="icon-sort"></i><i class="icon-sort-down"></i> <i class="icon-sort-up"></i></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-
-
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Jill</td>
-                                            <td>Smith</td>
-                                            <td>50</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Eve</td>
-                                            <td>Jackson</td>
-                                            <td>94</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>3</td>
-                                            <td>John</td>
-                                            <td>Doe</td>
-                                            <td>80</td>
-                                        </tr>
-
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Adam</td>
-                                            <td>Johnson</td>
-                                            <td>67</td>
-                                        </tr>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="panel panel-primary">
-                            <div class="panel-heading ">
-                                Collapsible Accordion Panel Group
-                            </div>
-                            <div class="panel-body">
-                                <div class="panel-group" id="accordion">
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Collapsible Group Item #1</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseOne" class="panel-collapse collapse in">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, luaute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Collapsible Group Item #2</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseTwo" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h4 class="panel-title">
-                                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Collapsible Group Item #3</a>
-                                            </h4>
-                                        </div>
-                                        <div id="collapseThree" class="panel-collapse collapse">
-                                            <div class="panel-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                Primary Panel
-                            </div>
-                            <div class="panel-body">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tincidunt est vitae ultrices accumsan. Aliquam ornare lacus adipiscing, posuere lectus et, fringilla augue.</p>
-                            </div>
-                            <div class="panel-footer">
-                                Panel Footer
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Context Classes
-                            </div>
-                            <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
-                                                <th>Last Name</th>
-                                                <th>Username</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr class="success">
-                                                <td>1</td>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
-                                            <tr class="info">
-                                                <td>2</td>
-                                                <td>Jacob</td>
-                                                <td>Thornton</td>
-                                                <td>@fat</td>
-                                            </tr>
-                                            <tr class="warning">
-                                                <td>3</td>
-                                                <td>Larry</td>
-                                                <td>the Bird</td>
-                                                <td>@twitter</td>
-                                            </tr>
-                                            <tr class="danger">
-                                                <td>4</td>
-                                                <td>John</td>
-                                                <td>Smith</td>
-                                                <td>@jsmith</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Modal Example
-                            </div>
-                            <div class="panel-body">
-                                <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                                    Launch Demo Modal
-                                </button>
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                <button type="button" class="btn btn-primary">Save changes</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                 <!--TABLE, PANEL, ACCORDION AND MODAL  -->
-
-                
-            </div>
-
-        </div>
-        <!--END PAGE CONTENT -->
-
-         <!-- RIGHT STRIP  SECTION -->
-        <div id="right">
-
-            
-            <div class="well well-small">
-                <ul class="list-unstyled">
-                    <li>Visitor &nbsp; : <span>23,000</span></li>
-                    <li>Users &nbsp; : <span>53,000</span></li>
-                    <li>Registrations &nbsp; : <span>3,000</span></li>
-                </ul>
-            </div>
-            <div class="well well-small">
-                <button class="btn btn-block"> Help </button>
-                <button class="btn btn-primary btn-block"> Tickets</button>
-                <button class="btn btn-info btn-block"> New </button>
-                <button class="btn btn-success btn-block"> Users </button>
-                <button class="btn btn-danger btn-block"> Profit </button>
-                <button class="btn btn-warning btn-block"> Sales </button>
-                <button class="btn btn-inverse btn-block"> Stock </button>
-            </div>
-            <div class="well well-small">
-                <span>Profit</span><span class="pull-right"><small>20%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-info" style="width: 20%"></div>
-                </div>
-                <span>Sales</span><span class="pull-right"><small>40%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-success" style="width: 40%"></div>
-                </div>
-                <span>Pending</span><span class="pull-right"><small>60%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-warning" style="width: 60%"></div>
-                </div>
-                <span>Summary</span><span class="pull-right"><small>80%</small></span>
-
-                <div class="progress mini">
-                    <div class="progress-bar progress-bar-danger" style="width: 80%"></div>
-                </div>
-            </div>
-          
-            
-         
-
-        </div>
-         <!-- END RIGHT STRIP  SECTION -->
+      </div>
     </div>
 
-    <!--END MAIN WRAPPER -->
+    <footer class="admin-content-footer">
+      <hr>
+      <p class="am-padding-left">© 2014 AllMobilize, Inc. Licensed under MIT license.</p>
+    </footer>
+  </div>
+  <!-- content end -->
 
-    <!-- FOOTER -->
-    <div id="footer">
-        <p>&copy;  binarytheme &nbsp;2014 &nbsp;</p>
-    </div>
-    <!--END FOOTER -->
+</div>
 
+<a href="#" class="am-icon-btn am-icon-th-list am-show-sm-only admin-menu" data-am-offcanvas="{target: '#admin-offcanvas'}"></a>
 
-    <!-- GLOBAL SCRIPTS -->
-    <script src="${pageContext.request.contextPath}/assets/plugins/jquery-2.0.3.min.js"></script>
-     <script src="${pageContext.request.contextPath}/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/plugins/modernizr-2.6.2-respond-1.1.0.min.js"></script>
-    <!-- END GLOBAL SCRIPTS -->
+<!--[if lt IE 9]>
+<script src="http://libs.baidu.com/jquery/1.11.1/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
 
-    <!-- PAGE LEVEL SCRIPTS -->
-    <script src="${pageContext.request.contextPath}/assets/plugins/flot/jquery.flot.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/plugins/flot/jquery.flot.resize.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/plugins/flot/jquery.flot.time.js"></script>
-     <script  src="${pageContext.request.contextPath}/assets/plugins/flot/jquery.flot.stack.js"></script>
-    <script src="${pageContext.request.contextPath}/assets/js/for_index.js"></script>
-   
-    <!-- END PAGE LEVEL SCRIPTS -->
-
-
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="${pageContext.request.contextPath}/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="${pageContext.request.contextPath}/assets/js/amazeui.min.js"></script>
+<script src="${pageContext.request.contextPath}/assets/js/app.js"></script>
 </body>
-
-    <!-- END BODY -->
 </html>

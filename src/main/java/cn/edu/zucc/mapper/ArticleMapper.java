@@ -34,11 +34,26 @@ public interface ArticleMapper {
      * @return
      * @throws Exception
      */
-    public List<TbArticleEntity> findArticleList() throws Exception;
+    public List<TbArticleEntity> findAll() throws Exception;
 
 
     /**
+     * 查找所有文章包括类别名
+     * @return
+     * @throws Exception
+     */
+    public List<TbArticleEntity> findArticleList() throws Exception;
+
+    /**
      * 根据id查找文章
+     * @param id
+     * @throws Exception
+     */
+    public TbArticleEntity findById(Integer id) throws Exception;
+
+
+    /**
+     * 根据id查找文章信息（如喜爱数，阅读数）
      * @param id
      * @throws Exception
      */
@@ -83,13 +98,13 @@ public interface ArticleMapper {
 
 
 
-    /**
-     * 更新文章
-     * @param  articleEntity
-     * @return
-     * @throws Exception
-     */
-    int update(TbArticleEntity articleEntity);
+//    /**
+//     * 更新文章
+//     * @param  articleEntity
+//     * @return
+//     * @throws Exception
+//     */
+//    int update(TbArticleEntity articleEntity);
 
 
 

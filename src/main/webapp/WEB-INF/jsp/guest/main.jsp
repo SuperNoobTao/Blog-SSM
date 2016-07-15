@@ -10,7 +10,6 @@
 	<link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/assets/style.css" />
 	<link rel="stylesheet" type="text/css" media="all" href="${pageContext.request.contextPath}/assets/style/css/font-awesome.min.css" />
 	<link href="http://fonts.googleapis.com/css?family=Open+Sans:400,400italic,300italic,300,700,700italic|Open+Sans+Condensed:300,700" rel="stylesheet" type="text/css">
-
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/style/js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/style/js/ddsmoothmenu.js"></script>
 	<script type="text/javascript" src="${pageContext.request.contextPath}/assets/style/js/retina.js"></script>
@@ -25,23 +24,23 @@
 
 <div class="wrapper">
 	<div class="content">
-		<c:forEach items="" var="art">
+		<c:forEach items="${params.topArticles}" var="art">
 			<div class="post format-image box">
 				<div class="details">
-					<span class="icon-image"></span>
+					<span class="icon-image">${fn:substring(art.articleCdate,0,16)}</span>
             <span class="likes"><a href="#"
-								   class="likeThis"></a></span>
-					<span class="comments"><a href="#"></a></span>
+								   class="likeThis">${art.articleLikes}</a></span>
+					<span class="comments"><a href="#">${art.articleLooks}</a></span>
 				</div>
-				<h1 class="title"><a href="l"></a></h1>
+				<h1 class="title"><a href="${pageContext.request.contextPath}${art.articleStaticUrl}.html"></a>${art.articleTitle}</h1>
 
 					<%--<p>${art.articleMeta}</p>--%>
 
-				<div class="tags"><a href="#"></a></div>
+				<div class="tags"><a href="#">${art.articleType}</a></div>
 				<div class="post-nav">
             <span class="nav-prev"><a
-					href="">类型：</a></span>
-					<span class="nav-next"><a href="#">作者：</a></span>
+					href="${pageContext.request.contextPath}/listArticle.action?cid=${art.categoryId}">类型：${art.tbCategoryEntity.categoryName}</a></span>
+					<span class="nav-next"><a href="#">作者：${art.articleAuthor}</a></span>
 
 					<div class="clear"></div>
 				</div>
@@ -56,11 +55,11 @@
 		<div class="sidebox widget">
 			<h3 class="widget-title">最近更新</h3>
 			<ul class="post-list">
-				<c:forEach items="" var="art">
+				<c:forEach items="${params.lastArticlesList}" var="art">
 					<li>
 						<div class="meta">
-							<h5><a href=""></a></h5>
-							<em></em>
+							<h5><a href="${pageContext.request.contextPath}${art.articleStaticUrl}.html"></a>${art.articleTitle}</h5>
+							<em>${fn:substring(art.articleCdate,0,16)}</em>
 						</div>
 					</li>
 				</c:forEach>
@@ -80,8 +79,8 @@
 		<div class="sidebox widget">
 			<h3 class="widget-title categories">分类</h3>
 			<ul class="categories">
-				<c:forEach items="" var="cate">
-					<li><a href=""></a></li>
+				<c:forEach items="${params.categories}" var="cate">
+					<li><a href="${pageContext.request.contextPath}/listArticle.action?cid=${cate.categoryId}">${cate.categoryName}</a></li>
 				</c:forEach>
 			</ul>
 		</div>
