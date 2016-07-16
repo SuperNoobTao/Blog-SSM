@@ -65,20 +65,15 @@ public class UserController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = {
             "application/json; charset=utf-8" })
-        private String login(@Valid TbUserEntity tbUserEntity,RedirectAttributes redirectAttributes) {
+    private String login(@Valid TbUserEntity tbUserEntity,RedirectAttributes redirectAttributes) {
         //获取认证主体，如果主体已存在，则将当前的主体退出
         Subject subject = SecurityUtils.getSubject();
-
-
-
         if(subject.isAuthenticated()) {
             subject.logout();
         }
-
         try {
             //登录，调用ShiroRealm类中的登录认证方法
             subject.login(new UsernamePasswordToken(tbUserEntity.getUserAcount(), DigestUtils.md5Hex(tbUserEntity.getUserPwd()+passwordSalt)));
-
             System.out.println(passwordSalt);
             System.out.println(tbUserEntity.getUserAcount());
             System.out.println(DigestUtils.md5Hex(tbUserEntity.getUserPwd()+passwordSalt));
@@ -88,13 +83,13 @@ public class UserController {
             System.out.println((TbUserEntity)subject.getPrincipal());
             return "redirect:/process/Jurisdiction";
         } catch (LockedAccountException ex) {
-            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
-            return "redirect:/error";
+//            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
+            return "redirect:/";
         } catch (UnknownAccountException ex) {
-            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
+//            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,ex.getMessage()));
             return "redirect:/";
         } catch (AuthenticationException ex) {
-            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,"账号或密码错误"));
+//            redirectAttributes.addFlashAttribute("message",new Message(StateEnum.ERROR,"账号或密码错误"));
             return "redirect:/";
         }
 
@@ -104,7 +99,7 @@ public class UserController {
 
     @RequestMapping(value = "/register/checkUserName", method = RequestMethod.POST, produces = {
             "application/json; charset=utf-8" })
-        private String checkUserName(@Valid TbUserEntity tbUserEntity, HttpServletRequest request, HttpServletResponse response) throws IOException {
+    private String checkUserName(@Valid TbUserEntity tbUserEntity, HttpServletRequest request, HttpServletResponse response) throws IOException {
         String userAcount=tbUserEntity.getUserAcount();
         System.out.println(userAcount);
         int num = userService.countByAcount(userAcount);

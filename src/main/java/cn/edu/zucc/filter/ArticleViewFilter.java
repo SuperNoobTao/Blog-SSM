@@ -3,6 +3,8 @@ package cn.edu.zucc.filter;
 
 import cn.edu.zucc.service.ArticleService;
 import cn.edu.zucc.util.TemplateUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -17,10 +19,11 @@ import java.util.regex.Pattern;
 /**html静态化页面跳转
  * Created by shentao on 2016/6/12.
  */
+
 public class ArticleViewFilter implements Filter {
 
     //获取模版填充所需信息
-
+    @Autowired
     ArticleService articleService ;
 
 

@@ -98,13 +98,19 @@ public interface ArticleMapper {
 
 
 
-//    /**
+    //    /**
 //     * 更新文章
 //     * @param  articleEntity
 //     * @return
 //     * @throws Exception
 //     */
 //    int update(TbArticleEntity articleEntity);
+//查next
+    public List<TbArticleEntity> findNextArticle(Timestamp Cdate);
+
+
+    //查last
+    public List<TbArticleEntity> findLastArticle(Timestamp Cdate);
 
 
 

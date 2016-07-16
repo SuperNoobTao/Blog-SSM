@@ -22,7 +22,7 @@ public class ProcessController {
         logger.info("/process/Jurisdiction");
         Subject subject = SecurityUtils.getSubject();
         if(subject.hasRole("admin"))
-            return "redirect:/admin/main";
+            return "redirect:/admin";
         else if(subject.hasRole("editor"))
             return "redirect:/editor/main";
         else if(subject.hasRole("guest"))

@@ -3,20 +3,20 @@
 <mapper namespace="cn.edu.zucc.mapper.ArticleMapper">
     <cache/>
     <update id="updateArticleInfo" >
-     update
-     tb_article
-     set
-     article_likes=#{articleLikes} ,
-     article_cdate=#{articleCdate} ,
-     article_looks=#{articleLooks} ,
-     article_staticUrl=#{articleStaticUrl}
-     where
-     article_id=#{articleId};
+        update
+        tb_article
+        set
+        article_likes=#{articleLikes} ,
+        article_cdate=#{articleCdate} ,
+        article_looks=#{articleLooks} ,
+        article_staticUrl=#{articleStaticUrl}
+        where
+        article_id=#{articleId};
     </update>
 
     <select id="getCount" resultType="long">
-    SELECT count(*)
-    from tb_article;
+        SELECT count(*)
+        from tb_article;
     </select>
 
     <select id="findAll" resultType="TbArticleEntity">
@@ -25,8 +25,8 @@
     </select>
 
     <select id="findArticleList" resultMap="articleMap1" resultType="TbArticleEntity" >
-    SELECT a.*,c.* from tb_article a,tb_category c
-    WHERE a.category_id = c.category_id;
+        SELECT a.*,c.* from tb_article a,tb_category c
+        WHERE a.category_id = c.category_id;
     </select>
 
     <select id="findById" resultType="TbArticleEntity" parameterType="int" >
@@ -35,25 +35,25 @@
     </select>
 
     <select id="findByIdinfo" resultType="TbArticleEntity" parameterType="int" resultMap="articleMap2">
-    SELECT *
-    FROM tb_article where article_id = #{articleId};
+        SELECT *
+        FROM tb_article where article_id = #{articleId};
     </select>
 
     <select id="findByqQuery" resultType="TbArticleEntity">
-    SELECT article_id , article_title
-    FROM tb_article;
+        SELECT article_id , article_title
+        FROM tb_article;
     </select>
 
     <select id="findAllLastarticle" resultType="TbArticleEntity" resultMap="articleMap1">
-    SELECT a.*,c.* from tb_article a,tb_category c
-    WHERE a.category_id = c.category_id
-    ORDER BY article_cdate desc limit 3;
+        SELECT a.*,c.* from tb_article a,tb_category c
+        WHERE a.category_id = c.category_id
+        ORDER BY article_cdate desc limit 3;
     </select>
 
     <select id="findAllToparticle" resultType="TbArticleEntity" resultMap="articleMap1">
-    SELECT a.*,c.* from tb_article a,tb_category c
-    WHERE a.category_id = c.category_id
-    ORDER BY article_cdate desc limit 4;
+        SELECT a.*,c.* from tb_article a,tb_category c
+        WHERE a.category_id = c.category_id
+        ORDER BY article_cdate desc limit 4;
     </select>
 
     <insert id="save" parameterType="TbArticleEntity"  useGeneratedKeys="true" keyProperty="articleId">
@@ -86,12 +86,26 @@
         delete from tb_article where article_id=#{articleId}
     </delete>
 
+
+    <select id="findNextArticle" resultType="TbArticleEntity" resultMap="articleMap1">
+        SELECT a.*,c.* from tb_article a,tb_category c
+        WHERE a.category_id = c.category_id and article_cdate > #{articleCdate}
+        ORDER BY article_cdate desc limit 3;
+    </select>
+
+
+    <select id="findLastArticle" resultType="TbArticleEntity" resultMap="articleMap1">
+        SELECT a.*,c.* from tb_article a,tb_category c
+        WHERE a.category_id = c.category_id and #{articleCdate} > article_cdate
+        ORDER BY article_cdate desc limit 3;
+    </select>
+
     <!--<update id="update" parameterType="TbCategoryEntity" >-->
-        <!--update  tb_article-->
-        <!--set-->
-        <!--category_name=#{categoryName},-->
-        <!--category_remark=#{categoryRemark}-->
-        <!--where category_id=#{categoryId}-->
+    <!--update  tb_article-->
+    <!--set-->
+    <!--category_name=#{categoryName},-->
+    <!--category_remark=#{categoryRemark}-->
+    <!--where category_id=#{categoryId}-->
     <!--</update>-->
 
 

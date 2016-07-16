@@ -23,30 +23,27 @@ import java.util.List;
  * Created by shentao on 2016/7/10.
  */
 @Controller
-@RequestMapping("/admin") // url:/模块/资源/{id}/细分 /seckill/list
 public class AdminController {
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     /**
      * 管理员首页
-     *
      * @return "admin/main"
      */
-    @RequestMapping(value = "/main", method = {RequestMethod.GET, RequestMethod.POST})
+    @RequestMapping(value = "/admin", method = {RequestMethod.GET, RequestMethod.POST})
     @RequiresRoles(value = RoleSign.ADMIN)
     public String mainGet(Model model, HttpSession httpSession) {
-        logger.info("/admin/main");
-        String key = TbUserEntity.SESSION_KEY;
-        RedisManager redisManager  = new RedisManager();
-        Subject currentUser = SecurityUtils.getSubject();
-        Session session = currentUser.getSession();
-        TbUserEntity user = (TbUserEntity) session.getAttribute(key);
-
-        byte[] obj = redisManager.get(key.getBytes());
-        if (obj != null) {
-            TbUserEntity userInRedis = (TbUserEntity) SerializeUtils.deserialize(obj);
-        }else{
-        logger.info("redis缓存中并无此数据");
-        redisManager.set(key.getBytes(), SerializeUtils.serialize(user));}
+        logger.info("/admin");
+//        String key = TbUserEntity.SESSION_KEY;
+//        RedisManager redisManager  = new RedisManager();
+//        Subject currentUser = SecurityUtils.getSubject();
+//        Session session = currentUser.getSession();
+//        TbUserEntity user = (TbUserEntity) session.getAttribute(key);
+//        byte[] obj = redisManager.get(key.getBytes());
+//        if (obj != null) {
+//            TbUserEntity userInRedis = (TbUserEntity) SerializeUtils.deserialize(obj);
+//        }else{
+//        logger.info("redis缓存中并无此数据");
+//        redisManager.set(key.getBytes(), SerializeUtils.serialize(user));}
         return "admin/main";
     }
 

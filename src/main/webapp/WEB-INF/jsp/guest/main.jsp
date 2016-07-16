@@ -32,9 +32,9 @@
 								   class="likeThis">${art.articleLikes}</a></span>
 					<span class="comments"><a href="#">${art.articleLooks}</a></span>
 				</div>
-				<h1 class="title"><a href="${pageContext.request.contextPath}${art.articleStaticUrl}.html"></a>${art.articleTitle}</h1>
+				<h1 class="title"><a href="${pageContext.request.contextPath}${art.articleStaticUrl}.html">${art.articleTitle}</a></h1>
 
-					<%--<p>${art.articleMeta}</p>--%>
+				<p>${art.articleMeta}</p>
 
 				<div class="tags"><a href="#">${art.articleType}</a></div>
 				<div class="post-nav">
@@ -68,7 +68,7 @@
 		</div>
 
 		<div class="sidebox widget">
-			<h3 class="widget-title"><i class="icon-search icon"></i></h3>
+			<h3 class="widget-ti	tle"><i class="icon-search icon"></i></h3>
 
 			<form class="searchform" method="post" action="">
 				<input type="text" name="key" value="输入关键字搜索博客..." onFocus="this.value=''"

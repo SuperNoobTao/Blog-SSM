@@ -8,6 +8,22 @@
          version="3.1" metadata-complete="true">
   <!-- 如果是用mvn命令生成的xml，需要修改servlet版本为3.1 -->
 
+  <!-- html请求过滤器 -->
+  <filter>
+    <filter-name>articleViewFilter</filter-name>
+    <filter-class>cn.edu.zucc.filter.ArticleViewFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>articleViewFilter</filter-name>
+    <url-pattern>*.html</url-pattern>
+  </filter-mapping>
+  <filter-mapping>
+    <filter-name>articleViewFilter</filter-name>
+    <url-pattern>*.htm</url-pattern>
+  </filter-mapping>
+
+
+
   <!-- 配置DispatcherServlet -->
   <servlet>
     <servlet-name>seckill-dispatcher</servlet-name>

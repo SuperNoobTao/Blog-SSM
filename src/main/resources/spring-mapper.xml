@@ -42,4 +42,7 @@
         <!-- 给出需要扫描Dao接口包 -->
         <property name="basePackage" value="cn.edu.zucc.mapper" />
     </bean>
+
+
+
 </beans>
