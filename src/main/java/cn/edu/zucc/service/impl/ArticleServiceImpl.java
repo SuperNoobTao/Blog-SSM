@@ -75,7 +75,7 @@ public class ArticleServiceImpl implements ArticleService{
 
     @Override
     public List<TbArticleEntity> getAllArtcles() throws Exception {
-        return articleMapper.findAll();
+        return articleMapper.findArticleList();
     }
 
     @Override

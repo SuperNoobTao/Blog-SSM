@@ -22,7 +22,7 @@
     <script type="text/javascript" src="${#contextPath#}/assets/style/js/selectnav.js"></script>
     <script type="text/javascript" src="${#contextPath#}/assets/style/js/jquery.backstretch.min.js"></script>
     <script type="text/javascript">
-        $.backstretch("${#contextPath#}/assets/style/images/bg/16.jpg");
+        $.backstretch("${#contextPath#}/assets/style/images/bg/1.jpg");
     </script>
 </head>
 <body>

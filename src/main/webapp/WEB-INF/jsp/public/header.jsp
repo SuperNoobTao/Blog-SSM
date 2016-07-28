@@ -32,7 +32,7 @@
             <a href="http://blog.csdn.net/qq_20079725" title="进入我的CSDN博客">CSDN博客</a>
           </li>
           <li>
-            <a href="${pageContext.request.contextPath}/commentUI.action" title="给我留言">留言板</a>
+            <a href="${pageContext.request.contextPath}/guest/comment/add" title="给我留言">留言板</a>
           </li>
 
 

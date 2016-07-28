@@ -8,7 +8,7 @@ import java.io.IOException;
 /**
  * 控制静态资源浏览器进行缓存的过滤器
  *
- * @author shentao
+ * @author 宇强
  *
  */
 public class ExpiresFilter implements Filter {

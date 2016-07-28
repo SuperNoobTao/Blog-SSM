@@ -1,7 +1,9 @@
 package cn.edu.zucc.mapper;
 
 import cn.edu.zucc.pojo.TbCategoryEntity;
+import org.apache.ibatis.annotations.Param;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -69,5 +71,11 @@ public interface CategoryMapper {
      * @throws Exception
      */
     int update(TbCategoryEntity categoryEntity);
+
+
+    //查询分页
+    List<TbCategoryEntity> getPageData(@Param("startindex")int startindex, @Param("pagesize")int pagesize) throws SQLException;
+
+
 
 }

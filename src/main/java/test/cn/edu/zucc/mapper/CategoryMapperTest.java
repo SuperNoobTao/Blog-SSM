@@ -94,5 +94,13 @@ public class CategoryMapperTest {
     }
 
 
+    @Test
+    public void testPageData() throws Exception {
+        List<TbCategoryEntity> categoryEntitylist =categoryMapper.getPageData(1,5);
+        for (int i= 0 ;i<categoryEntitylist.size();i++) {
+            System.out.println(categoryEntitylist.get(i).toString());
+        }
+
+    }
 
 }

@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
 /**控制不要缓存动态页面的过滤器
- * @author shentao
+ * @author 宇强
  *
  */
 public class NoCacheFilter implements Filter {

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.edu.zucc.mapper.CommentMapper">
+    <cache/>
+    <select id="findAll" resultType="TbCommentEntity" resultMap="commentMap1">
+        SELECT c.*,g.* FROM tb_comment c,tb_guest g
+        WHERE  c.guest_id = g.guest_id;
+    </select>
+
+
+
+    <insert id="save" parameterType="TbCommentEntity"  useGeneratedKeys="true" keyProperty="commetId">
+        INSERT INTO tb_guest(commet_content,guest_id,article_id,commet_cdate,)
+        VALUES
+        (
+        #{commetContent},
+        #{guestId},
+        #{articleId},
+        #{commetCdate}
+        );
+    </insert>
+
+
+
+
+    <!--获取全部的文章信息-->
+    <resultMap id="commentMap1" type="TbCommentEntity">
+        <id column="commet_id" property="commetId"/>
+        <result column="commet_content" property="commetContent"/>
+        <result column="commet_cdate" property="commetCdate"/>
+        <association property="tbGuestEntity" javaType="TbGuestEntity">
+            <id column="guest_id" property="guestId"/>
+            <result column="guest_name" property="guestName"/>
+        </association>
+
+    </resultMap>
+
+
+
+
+
+</mapper>

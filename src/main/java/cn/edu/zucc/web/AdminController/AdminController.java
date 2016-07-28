@@ -33,11 +33,11 @@ public class AdminController {
     @RequiresRoles(value = RoleSign.ADMIN)
     public String mainGet(Model model, HttpSession httpSession) {
         logger.info("/admin");
-//        String key = TbUserEntity.SESSION_KEY;
+        String key = TbUserEntity.SESSION_KEY;
 //        RedisManager redisManager  = new RedisManager();
-//        Subject currentUser = SecurityUtils.getSubject();
-//        Session session = currentUser.getSession();
-//        TbUserEntity user = (TbUserEntity) session.getAttribute(key);
+          Subject currentUser = SecurityUtils.getSubject();
+          Session session = currentUser.getSession();
+          TbUserEntity user = (TbUserEntity) session.getAttribute(key);
 //        byte[] obj = redisManager.get(key.getBytes());
 //        if (obj != null) {
 //            TbUserEntity userInRedis = (TbUserEntity) SerializeUtils.deserialize(obj);

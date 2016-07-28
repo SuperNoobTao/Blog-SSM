@@ -58,7 +58,7 @@
         <li><a href="${pageContext.request.contextPath}/admin/guest"><span class="am-icon-table"></span>客户模块</a></li>
         <li><a href="${pageContext.request.contextPath}/admin/comment"><span class="am-icon-table"></span>管理留言</a></li>
 
-        <li><a href="UserAction_quit.action"><span class="am-icon-sign-out"></span>注销</a></li>
+        <li><a href="${pageContext.request.contextPath}/quit"><span class="am-icon-sign-out"></span>注销</a></li>
       </ul>
 
 

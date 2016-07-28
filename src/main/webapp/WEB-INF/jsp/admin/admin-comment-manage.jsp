@@ -81,11 +81,11 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${page.list}" var="comment">
+            <c:forEach items="${page}" var="comment">
               <tr>
                 <td><input type="checkbox" /></td>
                 <td>${comment.commetId}</td>
-                <td>${comment.guestName}</td>
+                <td>${comment.tbGuestEntity.guestName}</td>
                 <td>${comment.commetContent}</td>
                 <td>${comment.articleId}</td>
                 <td class="am-hide-sm-only">${comment.commetCdate}</td>

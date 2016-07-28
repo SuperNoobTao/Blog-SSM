@@ -36,22 +36,21 @@
 
         <div class="am-tabs am-margin" data-am-tabs>
             <ul class="am-tabs-nav am-nav am-nav-tabs">
-                <li><a href="#tab3">Add_form</a></li>
+                <li><a href="#tab3">添加/修改</a></li>
             </ul>
 
             <div class="am-tabs-bd">
 
                 <div class="am-tab-panel am-fade" id="tab3">
-                    <form class="am-form" action="category_${method}.action" method="post">
-                        <input type="hidden" name="tbCategoryEntity.categoryId" value="${categoryId}">
-
+                    <form class="am-form" action="${pageContext.request.contextPath}/admin/category/${method}" method="post">
+                        <input type="hidden" name="categoryId" value="${category.categoryId}">
                         <%--类别名称--%>
                         <div class="am-g am-margin-top-sm">
                             <div class="am-u-sm-4 am-u-md-2 am-text-right">
                                 类别名称
                             </div>
                             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-                                <input type="text" class="am-input-sm"  name="tbCategoryEntity.categoryName" value="${category.categoryName}">
+                                <input type="text" class="am-input-sm"  name="categoryName" value="${category.categoryName}">
                             </div>
                         </div>
 
@@ -61,7 +60,7 @@
                                 类别描述
                             </div>
                             <div class="am-u-sm-8 am-u-md-4 am-u-end">
-                                <input type="text" class="am-input-sm"  name="tbCategoryEntity.categoryRemark" value="${category.categoryRemark}">
+                                <input type="text" class="am-input-sm"  name="categoryRemark" value="${category.categoryRemark}">
                             </div>
                         </div>
                         <%--提交--%>

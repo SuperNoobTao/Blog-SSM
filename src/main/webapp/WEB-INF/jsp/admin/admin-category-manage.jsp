@@ -36,7 +36,7 @@
       <div class="am-u-sm-12 am-u-md-6">
         <div class="am-btn-toolbar">
           <div class="am-btn-group am-btn-group-xs">
-            <button type="button" class="am-btn am-btn-default"><a href="category_addui.action"><span class="am-icon-plus"></span> 新增</a></button>
+            <button type="button" class="am-btn am-btn-default"><a href="${pageContext.request.contextPath}/admin/category/createUI"><span class="am-icon-plus"></span> 新增</a></button>
             <button type="button" class="am-btn am-btn-default"><span class="am-icon-save"></span> 保存</button>
             <button type="button" class="am-btn am-btn-default"><span class="am-icon-trash-o"></span> 删除</button>
           </div>
@@ -75,7 +75,12 @@
               <td><a href="#">${tbCategoryEntity.categoryRemark}</a></td>
               <td class="am-hide-sm-only">${tbCategoryEntity.categoryCdate}</td>
               <td>
-
+                <div class="am-btn-toolbar">
+                  <div class="am-btn-group am-btn-group-xs">
+                    <button class="am-btn am-btn-default am-btn-xs am-text-secondary"><span class="am-icon-pencil-square-o"></span> <a href="${pageContext.request.contextPath}/admin/category/editUI?categoryId=${tbCategoryEntity.categoryId}"> 编辑</a></button>&nbsp;
+                    <button class="am-btn am-btn-default am-btn-xs am-text-danger am-hide-sm-only"><span class="am-icon-trash-o"></span> <a href="javascript:deleteConfirm('${tbCategoryEntity.categoryName}','${tbCategoryEntity.categoryId}')">删除</a></button>&nbsp;
+                  </div>
+                </div>
               </td>
             </tr>
           </c:forEach>
@@ -84,7 +89,7 @@
       </div>
 
     </div>
-
+    <%@include file="/WEB-INF/jsp/public/page.jsp" %>
   </div>
 
   <footer class="admin-content-footer">
@@ -119,7 +124,7 @@
   function deleteConfirm(cname,cid){
     var result = window.confirm("您确认删除 "+cname+" 这个类别吗？");
     if(result)
-      window.location.href = "${pageContext.request.contextPath}/category_delete.action?categoryId="+cid;
+      window.location.href = "${pageContext.request.contextPath}/admin/category/delete?categoryId="+cid;
   }
 </script>
 </html>

@@ -76,7 +76,7 @@
                 <td><input type="checkbox" /></td>
                 <td>${art.articleId}</td>
                 <td><a href="${pageContext.request.contextPath}${art.articleStaticUrl}.html">${art.articleTitle}</a></td>
-                <td>${art.categoryName}</td>
+                <td>${art.tbCategoryEntity.categoryName}</td>
                 <td>${art.articleLooks}</td>
                 <td>${art.articleLikes}</td>
                 <td>${art.articleTop==0?'未顶置':'顶置'}</td>

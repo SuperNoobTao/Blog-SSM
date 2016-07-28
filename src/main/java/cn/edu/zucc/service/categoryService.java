@@ -1,5 +1,6 @@
 package cn.edu.zucc.service;
 
+import cn.edu.zucc.pojo.Page;
 import cn.edu.zucc.pojo.TbCategoryEntity;
 
 import java.util.List;
@@ -61,6 +62,7 @@ public interface CategoryService {
     public boolean updateCategory(TbCategoryEntity tbCategoryEntity)  throws Exception;
 
 
-
+    //分页查询类别
+    public Page<TbCategoryEntity> queryPageCategory(String pagenum, String url) throws Exception;
 
 }

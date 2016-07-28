@@ -49,5 +49,8 @@
     </update>
 
 
+    <select id="getPageData" resultType="TbCategoryEntity">
+        SELECT * FROM tb_category LIMIT #{startindex},#{pagesize};
+    </select>
 
 </mapper>

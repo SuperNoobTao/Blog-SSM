@@ -5,6 +5,18 @@
         http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
+
+
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="shiroRealm"/>
+
+    </bean>
+
+
+
+
+
     <!-- shiro filter -->
     <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
         <property name="securityManager" ref="securityManager"/>
@@ -24,40 +36,40 @@
     </bean>
 
 
-    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
-        <property name="realm" ref="shiroRealm"/>
-        <!-- cacheManager -->
-        <property name="cacheManager" ref="cacheManager"/>
-        <!-- sessionManager -->
-        <property name="sessionManager" ref="sessionManager" />
-    </bean>
+    <!--<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">-->
+        <!--<property name="realm" ref="shiroRealm"/>-->
+        <!--&lt;!&ndash; cacheManager &ndash;&gt;-->
+        <!--<property name="cacheManager" ref="cacheManager"/>-->
+        <!--&lt;!&ndash; sessionManager &ndash;&gt;-->
+        <!--<property name="sessionManager" ref="sessionManager" />-->
+    <!--</bean>-->
 
-    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+    <!--<bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>-->
 
-    <!-- shiro redisManager -->
-    <bean id="redisManager" class="org.crazycake.shiro.RedisManager">
-        <property name="host" value="127.0.0.1"/>
-        <property name="port" value="6379"/>
-        <property name="expire" value="1800"/>
-        <!-- optional properties:
-        <property name="timeout" value="10000"/>
-        <property name="password" value="123456"/>
-        -->
-    </bean>
+    <!--&lt;!&ndash; shiro redisManager &ndash;&gt;-->
+    <!--<bean id="redisManager" class="org.crazycake.shiro.RedisManager">-->
+        <!--<property name="host" value="127.0.0.1"/>-->
+        <!--<property name="port" value="6379"/>-->
+        <!--<property name="expire" value="1800"/>-->
+        <!--&lt;!&ndash; optional properties:-->
+        <!--<property name="timeout" value="10000"/>-->
+        <!--<property name="password" value="123456"/>-->
+        <!--&ndash;&gt;-->
+    <!--</bean>-->
 
-    <!-- redisSessionDAO -->
-    <bean id="redisSessionDAO" class="org.crazycake.shiro.RedisSessionDAO">
-        <property name="redisManager" ref="redisManager" />
-    </bean>
+    <!--&lt;!&ndash; redisSessionDAO &ndash;&gt;-->
+    <!--<bean id="redisSessionDAO" class="org.crazycake.shiro.RedisSessionDAO">-->
+        <!--<property name="redisManager" ref="redisManager" />-->
+    <!--</bean>-->
 
-    <!-- sessionManager -->
-    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
-        <property name="sessionDAO" ref="redisSessionDAO" />
-    </bean>
+    <!--&lt;!&ndash; sessionManager &ndash;&gt;-->
+    <!--<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">-->
+        <!--<property name="sessionDAO" ref="redisSessionDAO" />-->
+    <!--</bean>-->
 
-    <!-- cacheManager -->
-    <bean id="cacheManager" class="org.crazycake.shiro.RedisCacheManager">
-        <property name="redisManager" ref="redisManager" />
-    </bean>
+    <!--&lt;!&ndash; cacheManager &ndash;&gt;-->
+    <!--<bean id="cacheManager" class="org.crazycake.shiro.RedisCacheManager">-->
+        <!--<property name="redisManager" ref="redisManager" />-->
+    <!--</bean>-->
 
 </beans>

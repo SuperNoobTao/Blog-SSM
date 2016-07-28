@@ -81,7 +81,7 @@
             </tr>
             </thead>
             <tbody>
-            <c:forEach items="${page.list}" var="guest">
+            <c:forEach items="${page}" var="guest">
               <tr>
                 <td><input type="checkbox" /></td>
                 <td>${guest.guestId}</td>
